@@ -1,0 +1,29 @@
+[project]
+name = "movie-recommender-assistant"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "latypov", email = "105818016+OleksiiLatypov@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "dlt>=1.30.0",
+    "elasticsearch>=9.5.0",
+    "fastapi>=0.141.1",
+    "gdown>=6.1.0",
+    "openai>=3.0.0",
+    "polars>=1.43.2",
+    "psycopg2-binary>=2.9.12",
+    "pyarrow>=25.0.1",
+    "python-dotenv>=1.2.2",
+    "sentence-transformers>=5.7.0",
+    "uvicorn>=0.52.2",
+]
+
+[project.scripts]
+movie-recommender-assistant = "movie_recommender_assistant:main"
+
+[build-system]
+requires = ["uv_build>=0.12.3,<0.13.0"]
+build-backend = "uv_build"
