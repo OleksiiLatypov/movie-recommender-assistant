@@ -22,8 +22,14 @@ def rerank_movies(query, movies):
 
     pairs = []
     for m in movies:
-        context = f"Title: {m.get('title')}. Genres: {m.get('genres')}. Plot: {m.get('overview')}.\
-                    Keywords: {m.get('keywords')}. Cast: {m.get('cast')}. Director: {m.get('director')}"
+        context = (
+                        f"Title: {m.get('title') or ''}. "
+                        f"Genres: {m.get('genres') or ''}. "
+                        f"Plot: {m.get('overview') or ''}. "
+                        f"Keywords: {m.get('keywords') or ''}. "
+                        f"Cast: {m.get('cast') or ''}. "
+                        f"Director: {m.get('director') or ''}"
+                    )
         pairs.append([query, context])
     
     scores = cross_encoder.predict(pairs, batch_size=16, show_progress_bar=False)
@@ -32,7 +38,7 @@ def rerank_movies(query, movies):
         movie["cross_score"] = float(score)
         # Apply your popularity boost here if desired
         pop = movie.get("popularity", 0) or 0
-        movie["final_score"] = movie["cross_score"] + (np.log(pop + 1) * 0.85)
+        movie["final_score"] = movie["cross_score"]# + (np.log(pop + 1) * 0.85)
 
     movies.sort(key=lambda x: x["final_score"], reverse=True)
     return movies

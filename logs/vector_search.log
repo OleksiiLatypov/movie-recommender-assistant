@@ -1,0 +1,109 @@
+2026-09-04 13:30:53,104 | INFO | Starting Vector evaluation | queries=100 | top_k=20
+2026-09-04 13:30:53,255 | INFO | PASS | rank=2 | expected=Gone Girl | query=husband becomes main suspect in wife disappearance Ben Affleck
+2026-09-04 13:30:53,324 | INFO | PASS | rank=5 | expected=The Prestige | query=Two magicians engage in competitive one-upmanship Hugh Jackman
+2026-09-04 13:30:53,391 | INFO | PASS | rank=1 | expected=Batman Begins | query=Batman begins his journey to protect Gotham Christian Bale
+2026-09-04 13:30:53,451 | INFO | PASS | rank=1 | expected=Inception | query=Inception dream within a dream heist movie Leonardo DiCaprio
+2026-09-04 13:30:53,514 | INFO | PASS | rank=2 | expected=Interstellar | query=Interstellar space travel to save humanity Matthew McConaughey
+2026-09-04 13:30:53,589 | INFO | PASS | rank=1 | expected=Live by Night | query=A group of Boston-bred gangsters set up shop in Florida Ben Affleck
+2026-09-04 13:30:53,664 | INFO | PASS | rank=1 | expected=Argo | query=CIA specialist plan to free six Americans in Iran Ben Affleck
+2026-09-04 13:30:53,744 | INFO | PASS | rank=2 | expected=Cold Weather | query=A guy moves back to Portland mystery of his ex-girlfriend's disappearance
+2026-09-04 13:30:53,810 | INFO | PASS | rank=1 | expected=The Cry of the Owl | query=failed marriage fragile mental history artist moves to small-town Pennsylvania
+2026-09-04 13:30:53,884 | INFO | PASS | rank=1 | expected=The Town | query=Doug MacRay longtime thief looking for his chance to exit the game
+2026-09-04 13:30:53,959 | INFO | PASS | rank=1 | expected=Memento | query=Man with short term memory loss tries to find his wife's killer using tattoos
+2026-09-04 13:30:54,030 | INFO | PASS | rank=1 | expected=Tenet | query=Secret agent travels through time using inversion to prevent World War III
+2026-09-04 13:30:54,088 | INFO | PASS | rank=1 | expected=Shutter Island | query=U.S. Marshal investigates a psychiatric facility on a remote island Leonardo DiCaprio
+2026-09-04 13:30:54,161 | INFO | PASS | rank=6 | expected=The Departed | query=An undercover cop and a mole in the police attempt to identify each other
+2026-09-04 13:30:54,229 | INFO | PASS | rank=1 | expected=Pulp Fiction | query=Intertwined stories of Los Angeles hitmen and a boxer Quentin Tarantino
+2026-09-04 13:30:54,303 | INFO | PASS | rank=1 | expected=Django Unchained | query=Freed slave turns bounty hunter to rescue his wife from a plantation Jamie Foxx
+2026-09-04 13:30:54,378 | INFO | PASS | rank=2 | expected=John Wick | query=Retired assassin goes on a rampage after his dog is killed Keanu Reeves
+2026-09-04 13:30:54,452 | INFO | PASS | rank=10 | expected=Dune | query=Noble family becomes embroiled in a war for control of the galaxy's most valuable asset
+2026-09-04 13:30:54,523 | INFO | PASS | rank=1 | expected=Oppenheimer | query=Story of the American scientist and his role in developing the atomic bomb Cillian Murphy
+2026-09-04 13:30:54,595 | WARNING | FAIL | expected=Parasite | query=Poor family schemes to become employed by a wealthy family by infiltrating their household
+2026-09-04 13:30:54,665 | INFO | PASS | rank=1 | expected=Everything Everywhere All at Once | query=Chinese immigrant is swept up in an insane adventure across the multiverse
+2026-09-04 13:30:54,735 | INFO | PASS | rank=1 | expected=The Dark Knight | query=Batman faces a psychopathic criminal mastermind known as the Joker
+2026-09-04 13:30:54,807 | INFO | PASS | rank=1 | expected=Fight Club | query=Insomniac office worker and a soap maker form an underground fight club
+2026-09-04 13:30:54,878 | WARNING | FAIL | expected=The Matrix | query=Computer hacker learns about the true nature of his reality and the war with machines
+2026-09-04 13:30:54,951 | INFO | PASS | rank=1 | expected=Se7en | query=Two detectives hunt a serial killer who uses the seven deadly sins as motifs
+2026-09-04 13:30:55,028 | INFO | PASS | rank=1 | expected=Gladiator | query=Former Roman General sets out to exact vengeance against the corrupt emperor Russell Crowe
+2026-09-04 13:30:55,103 | WARNING | FAIL | expected=Mad Max: Fury Road | query=A woman rebels against a tyrannical ruler in post-apocalyptic Australia Tom Hardy
+2026-09-04 13:30:55,176 | INFO | PASS | rank=2 | expected=Whiplash | query=Promising young drummer enrolls at a cut-throat music conservatory J.K. Simmons
+2026-09-04 13:30:55,251 | INFO | PASS | rank=1 | expected=Blade Runner 2049 | query=Young blade runner unearths a long-buried secret that could plunge society into chaos
+2026-09-04 13:30:55,328 | INFO | PASS | rank=1 | expected=Arrival | query=Linguist works with the military to communicate with alien newcomers Amy Adams
+2026-09-04 13:30:55,402 | INFO | PASS | rank=2 | expected=Ex Machina | query=Programmer is invited to test the human qualities of a highly advanced humanoid AI
+2026-09-04 13:30:55,485 | INFO | PASS | rank=11 | expected=Her | query=Lonely writer develops an unlikely relationship with an operating system
+2026-09-04 13:30:55,557 | INFO | PASS | rank=1 | expected=Get Out | query=Young African-American visits his white girlfriend's parents for the weekend Daniel Kaluuya
+2026-09-04 13:30:55,634 | INFO | PASS | rank=9 | expected=Hereditary | query=Grieving family is haunted by tragic and disturbing occurrences Toni Collette
+2026-09-04 13:30:55,708 | INFO | PASS | rank=1 | expected=The Shining | query=Family heads to an isolated hotel for the winter where a sinister presence Jack Nicholson
+2026-09-04 13:30:55,783 | INFO | PASS | rank=2 | expected=No Country for Old Men | query=Hunter stumbles upon a drug deal gone wrong and more than two million dollars
+2026-09-04 13:30:55,857 | INFO | PASS | rank=17 | expected=Sicario | query=Idealistic FBI agent is enlisted by a government task force to aid in the war on drugs
+2026-09-04 13:30:55,932 | WARNING | FAIL | expected=Prisoners | query=When his daughter and her friend go missing a father takes matters into his own hands
+2026-09-04 13:30:56,010 | INFO | PASS | rank=5 | expected=Nightcrawler | query=A con man enters the world of L.A. crime journalism Jake Gyllenhaal
+2026-09-04 13:30:56,087 | INFO | PASS | rank=1 | expected=Birdman or (The Unexpected Virtue of Ignorance) | query=Faded actor best known for playing a superhero attempts a comeback on Broadway
+2026-09-04 13:30:56,162 | INFO | PASS | rank=1 | expected=Joker | query=Party clown and a failed stand-up comedian is disregarded and mistreated by society Joaquin Phoenix
+2026-09-04 13:30:56,239 | INFO | PASS | rank=1 | expected=1917 | query=Two British soldiers are given a seemingly impossible mission during World War I
+2026-09-04 13:30:56,317 | INFO | PASS | rank=1 | expected=Logan | query=Weary Wolverine cares for an ailing Professor X in a hideout on the Mexican border
+2026-09-04 13:30:56,391 | INFO | PASS | rank=2 | expected=The Wolf of Wall Street | query=Rise and fall of a wealthy stock-broker living the high life Leonardo DiCaprio
+2026-09-04 13:30:56,462 | INFO | PASS | rank=7 | expected=Knives Out | query=Detective investigates the death of a patriarch of an eccentric combative family
+2026-09-04 13:30:56,540 | INFO | PASS | rank=1 | expected=The Social Network | query=The story of the founding of Facebook by student and the legal battles that followed
+2026-09-04 13:30:56,615 | INFO | PASS | rank=2 | expected=Zodiac | query=San Francisco cartoonist becomes an amateur detective obsessed with tracking the Zodiac Killer
+2026-09-04 13:30:56,688 | INFO | PASS | rank=3 | expected=The Silence of the Lambs | query=young FBI trainee looking for help of serial cannibal killer
+2026-09-04 13:30:56,767 | INFO | PASS | rank=1 | expected=GoodFellas | query=The story of Henry Hill and his life in the mob Ray Liotta Robert De Niro
+2026-09-04 13:30:56,841 | INFO | PASS | rank=1 | expected=Forrest Gump | query=A drama romance movie about a guy from Alabama with a low IQ who ran in many countries.
+2026-09-04 13:30:56,909 | INFO | PASS | rank=5 | expected=Troy | query=action, epic movies about ancient Greeks their mythology, God`s, battles, voyages, adventures and wars
+2026-09-04 13:30:56,989 | INFO | PASS | rank=5 | expected=Toy Story 2 | query=movie where toys come to life
+2026-09-04 13:30:57,062 | INFO | PASS | rank=4 | expected=Titanic | query=love story based on historical events where giant ship that hits an iceberg
+2026-09-04 13:30:57,145 | WARNING | FAIL | expected=The Sixth Sense | query=a psychologist treats a boy who sees ghosts
+2026-09-04 13:30:57,208 | INFO | PASS | rank=10 | expected=Star Wars | query=Farm boy joins a galactic rebellion and learns about the Force
+2026-09-04 13:30:57,274 | INFO | PASS | rank=1 | expected=The Lord of the Rings: The Fellowship of the Ring | query=Hobbit journeys to a volcano to destroy a powerful ring
+2026-09-04 13:30:57,347 | INFO | PASS | rank=18 | expected=The Godfather | query=The patriarch of a crime dynasty transfers control to his reluctant son
+2026-09-04 13:30:57,419 | INFO | PASS | rank=1 | expected=12 Angry Men | query=Twelve jurors debate the guilt of a young man in a small room
+2026-09-04 13:30:57,494 | INFO | PASS | rank=1 | expected=The Lion King | query=Lion prince flees home after his father's death only to return as an adult
+2026-09-04 13:30:57,570 | INFO | PASS | rank=1 | expected=Jurassic Park | query=Scientists and children visit a theme park with cloned dinosaurs
+2026-09-04 13:30:57,649 | WARNING | FAIL | expected=Saving Private Ryan | query=Scientists go behind enemy lines in WWII to find a man whose brothers were killed
+2026-09-04 13:30:57,722 | INFO | PASS | rank=1 | expected=The Truman Show | query=Insurance salesman discovers his whole life is a reality TV show
+2026-09-04 13:30:57,795 | INFO | PASS | rank=6 | expected=Eternal Sunshine of the Spotless Mind | query=Couple undergoes a procedure to erase each other from their memories
+2026-09-04 13:30:57,869 | INFO | PASS | rank=2 | expected=La La Land | query=Jazz pianist and aspiring actress fall in love in Los Angeles
+2026-09-04 13:30:57,941 | INFO | PASS | rank=7 | expected=Amélie | query=Shy waitress in Paris decides to change the lives of those around her
+2026-09-04 13:30:58,015 | INFO | PASS | rank=1 | expected=Green Book | query=Italian-American bouncer drives a Black pianist through the 1960s South
+2026-09-04 13:30:58,099 | WARNING | FAIL | expected=Oldboy | query=Man is kidnapped and imprisoned for 15 years without knowing why
+2026-09-04 13:30:58,171 | INFO | PASS | rank=2 | expected=Back to the Future | query=Teenager travels back to the 1950s in a DeLorean time machine
+2026-09-04 13:30:58,249 | INFO | PASS | rank=1 | expected=Avengers: Endgame | query=Superheroes use time travel to undo a galactic genocide
+2026-09-04 13:30:58,328 | WARNING | FAIL | expected=Kill Bill: Vol. 1 | query=The Bride seeks revenge on her former colleagues who tried to kill her
+2026-09-04 13:30:58,404 | INFO | PASS | rank=2 | expected=Léon: The Professional | query=Professional hitman protects a 12-year-old girl after her family is murdered
+2026-09-04 13:30:58,481 | WARNING | FAIL | expected=Top Gun: Maverick | query=Veteran pilot trains a new group of graduates for a dangerous mission
+2026-09-04 13:30:58,549 | INFO | PASS | rank=1 | expected=Donnie Darko | query=Troubled teenager is visited by a giant rabbit who tells him the world is ending
+2026-09-04 13:30:58,622 | INFO | PASS | rank=1 | expected=Black Swan | query=Ballerina descends into madness while preparing for the lead role in Swan Lake
+2026-09-04 13:30:58,703 | INFO | PASS | rank=1 | expected=12 Years a Slave | query=Free Black man from New York is kidnapped and sold into slavery
+2026-09-04 13:30:58,779 | INFO | PASS | rank=1 | expected=Spotlight | query=True story of the Boston Globe's investigation into the Catholic Church
+2026-09-04 13:30:58,852 | WARNING | FAIL | expected=Jojo Rabbit | query=German boy discovers his mother is hiding a Jewish girl in their attic during WWII
+2026-09-04 13:30:58,927 | INFO | PASS | rank=1 | expected=Drive | query=Hollywood stunt driver moonlights as a getaway driver Ryan Gosling
+2026-09-04 13:30:59,001 | INFO | PASS | rank=1 | expected=American Psycho | query=Wealthy investment banker hides his bloodlust from his shallow associates
+2026-09-04 13:30:59,074 | INFO | PASS | rank=1 | expected=Shrek | query=Ogre goes on a quest to rescue a princess to get his swamp back
+2026-09-04 13:30:59,149 | INFO | PASS | rank=1 | expected=Ratatouille | query=A rat who can cook makes an alliance with a kitchen worker in Paris
+2026-09-04 13:30:59,225 | INFO | PASS | rank=1 | expected=Spirited Away | query=Young girl enters a world of spirits and works in a bathhouse to save parents
+2026-09-04 13:30:59,300 | INFO | PASS | rank=13 | expected=Barbie | query=Iconic doll enters the real world to find her true purpose
+2026-09-04 13:30:59,372 | INFO | PASS | rank=1 | expected=Heat | query=A group of professional bank robbers pursued by an obsessive detective Al Pacino
+2026-09-04 13:30:59,444 | INFO | PASS | rank=1 | expected=Inglourious Basterds | query=Jewish-American soldiers plot to assassinate Nazi leaders in occupied France
+2026-09-04 13:30:59,523 | WARNING | FAIL | expected=Braveheart | query=Scottish warrior leads a rebellion against the English king Mel Gibson
+2026-09-04 13:30:59,582 | WARNING | FAIL | expected=Alien | query=The crew of a spacecraft encounters a deadly extraterrestrial life form
+2026-09-04 13:30:59,643 | INFO | PASS | rank=3 | expected=Coco | query=Boy travels to the Land of the Dead to find his musician ancestor
+2026-09-04 13:30:59,704 | WARNING | FAIL | expected=Spider-Man: Into the Spider-Verse | query=Teenager becomes a web-slinger and meets other versions of himself
+2026-09-04 13:30:59,777 | INFO | PASS | rank=6 | expected=Black Panther | query=African king defends his high-tech nation from a dangerous usurper
+2026-09-04 13:30:59,850 | WARNING | FAIL | expected=Doctor Strange in the Multiverse of Madness | query=Man travels through the multiverse to find his daughter in different realities
+2026-09-04 13:30:59,920 | WARNING | FAIL | expected=The Shape of Water | query=A mute woman falls in love with a high-security lab creature
+2026-09-04 13:30:59,998 | INFO | PASS | rank=18 | expected=The Big Short | query=Four outsiders in high finance predict the housing bubble collapse
+2026-09-04 13:31:00,079 | INFO | PASS | rank=2 | expected=A Beautiful Mind | query=A mathematician with schizophrenia wins the Nobel Prize Russell Crowe
+2026-09-04 13:31:00,142 | INFO | PASS | rank=1 | expected=Good Will Hunting | query=Brilliant but rebellious janitor at MIT solves difficult math problems
+2026-09-04 13:31:00,205 | WARNING | FAIL | expected=The Irishman | query=A former hitman tries to settle down but is pulled back for one last job
+2026-09-04 13:31:00,262 | INFO | PASS | rank=18 | expected=Saint Maud | query=Disturbing story about a nurse who becomes obsessed with her patient
+2026-09-04 13:31:00,325 | INFO | PASS | rank=2 | expected=Midsommar | query=Young woman discovers her family's dark secret at a midsummer festival in Sweden
+2026-09-04 13:31:00,393 | INFO | PASS | rank=1 | expected=The Menu | query=Couple visits an exclusive restaurant on an island where the chef has a dark plan
+2026-09-04 13:31:00,456 | INFO | PASS | rank=1 | expected=Roma | query=The life of a domestic worker for a middle-class family in Mexico City
+2026-09-04 13:31:00,458 | INFO | Evaluation finished | duration=7.35s
+2026-09-04 13:31:00,458 | INFO | Results | hit_rate=84.00% | mrr=0.592
+2026-09-04 13:31:00,458 | INFO | ========================================
+2026-09-04 13:31:00,458 | INFO | VECTOR RETRIEVAL PERFORMANCE (K=20)
+2026-09-04 13:31:00,458 | INFO | ----------------------------------------
+2026-09-04 13:31:00,458 | INFO | HIT RATE: 84.00%
+2026-09-04 13:31:00,458 | INFO | MRR:      0.592
+2026-09-04 13:31:00,458 | INFO | ========================================

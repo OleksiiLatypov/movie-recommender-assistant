@@ -12,16 +12,16 @@ def search_rrf_pipeline(query, top_n=20):
     Unified function for the evaluation script to call.
     """
 
-    rewritten = rewrite_query(query)
-    print(rewritten)
+    # rewritten = rewrite_query(query)
+    # print(rewritten)
     # 1. BM25 Search
-    bm25_results = bm25_search(rewritten, retrieve_k=150)
+    bm25_results = bm25_search(query, retrieve_k=150)
     
     # 2. Query Rewriting
 #    rewritten = rewrite_query(query)
     
     # 3. Vector Search
-    vector_results = vector_search(rewritten, retrieve_k=150)
+    vector_results = vector_search(query, retrieve_k=150)
     
     # 4. Fusion
     candidates = reciprocal_rank_fusion(bm25_results, vector_results, top_n=50)
@@ -39,6 +39,7 @@ if __name__ == "__main__":
     #query = "A psychological thriller where a man has no short term memory"
     #query = "Scottish warrior leads a group of people against the English king with Mel Gibson main role"
     query = "crime, drama movie where young daughter is disappear with her friend and police fails to find them, Hugh Jackman starring"
+    query = "Farm boy joins a galactic rebellion and learns about the Force"
     result = search_rrf_pipeline(query, top_n=20)
     for el in result:
         print(el["title"])

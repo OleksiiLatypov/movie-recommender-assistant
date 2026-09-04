@@ -1,333 +1,510 @@
 # import os
+# import json
 # import polars as pl
 # from openai import OpenAI
+# from tqdm import tqdm
 # from dotenv import load_dotenv
-
-# from chatgpt.test import search_rrf_evaluation_pipeline as search_movies
-
+# from chatgpt.test import search_rrf_evaluation_pipeline as search_movies 
 
 # load_dotenv()
-
 
 # client = OpenAI(
 #     api_key=os.getenv("GROQ_API_KEY"),
 #     base_url="https://api.groq.com/openai/v1"
 # )
 
+# # Using Llama 3 or similar via Groq
+# JUDGE_MODEL = "openai/gpt-oss-120b"
 
-# JUDGE_MODEL = "openai/gpt-oss-20b"
-
-
+# # ============================================================
+# # IMPROVED JSON PROMPT
+# # ============================================================
 # JUDGE_PROMPT = """
-# You are an expert movie search quality evaluator.
+# You are a search quality judge. Evaluate the relevance of the TOP 3 search results for a movie query.
 
-# USER QUERY:
-# {query}
+# USER QUERY: {query}
+# EXPECTED MOVIE: {expected}
 
-# EXPECTED MOVIE:
-# {expected}
+# RESULTS:
+# {results_text}
 
-# RETRIEVED MOVIE:
-# {title}
+# SCORING RUBRIC:
+# 3: EXCELLENT - Perfect match or exactly what was requested.
+# 2: GOOD - Highly relevant, same vibe/genre/actors.
+# 1: PARTIAL - Slight connection (e.g., same director but wrong movie).
+# 0: IRRELEVANT - No connection.
 
-# MOVIE OVERVIEW:
-# {overview}
-
-# Evaluate how good the retrieved movie is for the user's query.
-
-# SCORING:
-
-# 3 = EXCELLENT
-# The retrieved movie is the expected movie or an almost exact match.
-
-# 2 = GOOD
-# The movie is highly relevant to the query but is not the expected movie.
-
-# 1 = PARTIAL
-# The movie has some connection to the query but misses the main intent.
-
-# 0 = IRRELEVANT
-# The movie does not match the user's request.
-
-# Return exactly:
-
-# Score: [0-3]
-# Reason: [one short sentence]
+# You MUST return a JSON object with this structure:
+# {{
+#   "evaluations": [
+#     {{ "rank": 1, "score": number, "reason": "string" }},
+#     {{ "rank": 2, "score": number, "reason": "string" }},
+#     {{ "rank": 3, "score": number, "reason": "string" }}
+#   ]
+# }}
 # """
 
-
-# def get_llm_judgment(query, expected, movie):
+# def get_top_n_judgments(query, expected, movies):
+#     """
+#     Evaluates a list of movies in one single LLM call.
+#     """
+#     # Format the movies into a string for the prompt
+#     results_text = ""
+#     for i, m in enumerate(movies, 1):
+#         results_text += f"""
+#                             RANK {i}
+#                             Title: {m.get('title', '')}
+#                             Genres: {m.get('genres', '')}
+#                             Director: {m.get('director', '')}
+#                             Cast: {m.get('cast', '')}
+#                             Overview: {m.get('overview', '')}
+#                             Keywords: {m.get('keywords', '')}
+#                         """
 
 #     prompt = JUDGE_PROMPT.format(
 #         query=query,
 #         expected=expected,
-#         title=movie.get("title", ""),
-#         overview=movie.get("overview", "")
+#         results_text=results_text
 #     )
-
+    
 #     try:
-
 #         response = client.chat.completions.create(
 #             model=JUDGE_MODEL,
-#             messages=[
-#                 {
-#                     "role": "user",
-#                     "content": prompt
-#                 }
-#             ],
+#             messages=[{"role": "user", "content": prompt}],
+#             response_format={"type": "json_object"}, # Forces JSON output
 #             temperature=0
 #         )
-
-#         content = response.choices[0].message.content
-#         print("\nJUDGE RAW RESPONSE:")
-#         print(content)
-
-#         score_line = next(
-#             line for line in content.splitlines()
-#             if "Score:" in line
-#         )
-
-#         reason_line = next(
-#             line for line in content.splitlines()
-#             if "Reason:" in line
-#         )
-
-#         score = int(
-#             score_line.split(":", 1)[1].strip()
-#         )
-
-#         reason = reason_line.split(
-#             ":", 1
-#         )[1].strip()
-
-#         return score, reason
-
+#         # Parse the JSON response
+#         data = json.loads(response.choices[0].message.content)
+#         return data.get("evaluations", [])
 #     except Exception as e:
-#         print("\nJUDGE ERROR:")
-#         print(type(e).__name__)
-#         print(e)
+#         print(f"Error in LLM Judge: {e}")
+#         return []
 
-#         return 0, f"Error: {e}"
-
-
-# def run_judge_evaluation(
-#     gt_path,
-#     output_path,
-#     limit=None
-# ):
-
-#     # Load ground truth
+# def run_judge_evaluation(gt_path, output_path, limit=None):
 #     df = pl.read_csv(gt_path)
-
 #     if limit:
 #         df = df.head(limit)
 
-#     results = []
+#     all_results = []
+#     print(f"🚀 Starting Top-3 Judge Evaluation on {len(df)} samples...\n")
 
-#     print(
-#         f"Starting evaluation on {len(df)} queries...\n"
-#     )
-
-#     for row in df.iter_rows(named=True):
-
-#         query = row["query"]
-#         expected = row["expected_title"]
-
-#         # -----------------------------------------
-#         # RAG SEARCH
-#         # -----------------------------------------
-
-#         search_hits = search_movies(
-#             query,
-#             top_n=1
-#         )
-
+#     for row in tqdm(df.iter_rows(named=True)):
+#         query = row['query']
+#         expected = row['expected_title']
+        
+#         # 1. Search for Top 3
+#         search_hits = search_movies(query, top_n=3)
+        
 #         if not search_hits:
-
-#             results.append({
+#             continue
+            
+#         # 2. Get evaluation for all 3 at once
+#         evaluations = get_top_n_judgments(query, expected, search_hits)
+        
+#         # 3. Combine search data with judge scores
+#         for i, m in enumerate(search_hits):
+#             # Find matching judge score by rank
+#             eval_data = next((item for item in evaluations if item["rank"] == i+1), {"score": 0, "reason": "N/A"})
+            
+#             all_results.append({
 #                 "query": query,
 #                 "expected": expected,
-#                 "result": "N/A",
-#                 "score": 0,
-#                 "reason": "No results found"
+#                 "retrieved_title": m['title'],
+#                 "rank": i + 1,
+#                 "llm_score": eval_data["score"],
+#                 "llm_reason": eval_data["reason"]
 #             })
 
-#             continue
+#     # 4. Final Metrics
+#     results_df = pl.DataFrame(all_results)
+    
+#     # Calculate Mean Score @ Rank 1 vs Mean Score @ Rank 3
+#     avg_rank1 = results_df.filter(pl.col("rank") == 1)["llm_score"].mean()
+#     avg_overall = results_df["llm_score"].mean()
+    
+#     # "Hit Rate" based on LLM (Is there a score 3 in the top 3?)
+#     perfect_hits = results_df.filter(pl.col("llm_score") == 3).select("query").unique().height
+#     hit_rate_at_3 = (perfect_hits / len(df)) * 100
 
-#         # -----------------------------------------
-#         # TOP RESULT
-#         # -----------------------------------------
-
-#         movie = search_hits[0]
-
-#         score, reason = get_llm_judgment(
-#             query,
-#             expected,
-#             movie
-#         )
-
-#         results.append({
-#             "query": query,
-#             "expected": expected,
-#             "result": movie["title"],
-#             "score": score,
-#             "reason": reason
-#         })
-
-#         print(
-#             f"{score}/3 | "
-#             f"{expected} -> {movie['title']}"
-#         )
-
-#     # -----------------------------------------
-#     # METRICS
-#     # -----------------------------------------
-
-#     results_df = pl.DataFrame(results)
-
-#     avg_score = results_df["score"].mean()
-
-#     success_rate = (
-#         results_df
-#         .filter(pl.col("score") >= 2)
-#         .height
-#         / len(results_df)
-#         * 100
-#     )
-
-#     print("\n" + "=" * 50)
-#     print("LLM JUDGE RESULTS")
-#     print("=" * 50)
-
-#     print(
-#         f"Average Relevance: {avg_score:.2f}/3"
-#     )
-
-#     print(
-#         f"Success Rate: {success_rate:.1f}%"
-#     )
-
-#     print(
-#         f"Results saved to: {output_path}"
-#     )
-
-#     print("=" * 50)
+#     print(f"\n" + "="*40)
+#     print(f"TOP-3 JUDGE RESULTS")
+#     print("-" * 40)
+#     print(f"Avg Score @ Rank 1: {avg_rank1:.2f}")
+#     print(f"Avg Score (All Top 3): {avg_overall:.2f}")
+#     print(f"LLM-Verified Hit Rate @ 3: {hit_rate_at_3:.1f}%")
+#     print("="*40)
 
 #     results_df.write_csv(output_path)
 
-
 # if __name__ == "__main__":
-
-#     GT_PATH = "../data/ground_truth.csv"
-
-#     OUT_PATH = "judge_results.csv"
-
-#     run_judge_evaluation(
-#         GT_PATH,
-#         OUT_PATH,
-#         limit=20
-#     )
+#     run_judge_evaluation("../data/ground_truth_10.csv", "/workspaces/movie-recommender-assistant/data/judge_top3_results.csv")
 
 import os
 import json
+import logging
+import time
+from pathlib import Path
+
 import polars as pl
 from openai import OpenAI
+from tqdm import tqdm
 from dotenv import load_dotenv
-from chatgpt.test import search_rrf_evaluation_pipeline as search_movies
+
+from rag.hybrid_search import search_rrf_pipeline as search_movies
+
 
 load_dotenv()
 
-client = OpenAI(
-    api_key=os.getenv("GROQ_API_KEY"),
-    base_url="https://api.groq.com/openai/v1"
+
+# ============================================================
+# LOGGING
+# ============================================================
+
+Path("logs").mkdir(exist_ok=True)
+
+logger = logging.getLogger("llm_judge_evaluation")
+logger.setLevel(logging.INFO)
+logger.propagate = False
+
+formatter = logging.Formatter(
+    "%(asctime)s | %(levelname)s | %(message)s"
 )
 
-# Краще використовувати Llama-3.1-8b або 70b на Groq
-JUDGE_MODEL = "llama-3.1-8b-instant" 
+console_handler = logging.StreamHandler()
+console_handler.setFormatter(formatter)
+
+file_handler = logging.FileHandler(
+    "logs/llm_judge.log",
+    mode="a",
+    encoding="utf-8",
+)
+file_handler.setFormatter(formatter)
+
+logger.addHandler(console_handler)
+logger.addHandler(file_handler)
+
+
+# ============================================================
+# OPENAI / GROQ CLIENT
+# ============================================================
+
+client = OpenAI(
+    api_key=os.getenv("GROQ_API_KEY"),
+    base_url="https://api.groq.com/openai/v1",
+)
+
+
+JUDGE_MODEL = "openai/gpt-oss-120b"
+
+
+# ============================================================
+# JSON PROMPT
+# ============================================================
 
 JUDGE_PROMPT = """
-You are an expert movie search evaluator.
-Compare the USER QUERY and EXPECTED MOVIE against the RETRIEVED MOVIE.
+You are a search quality judge. Evaluate the relevance of the TOP 3 search results for a movie query.
 
-QUERY: {query}
-EXPECTED: {expected}
-RETRIEVED: {title}
-OVERVIEW: {overview}
+USER QUERY: {query}
+EXPECTED MOVIE: {expected}
 
-SCORING:
-3: EXCELLENT - Exact match or identical intent.
-2: GOOD - Highly relevant, fits query perfectly but different title.
-1: PARTIAL - Related (same actor/genre) but misses core intent.
+RESULTS:
+{results_text}
+
+SCORING RUBRIC:
+3: EXCELLENT - Perfect match or exactly what was requested.
+2: GOOD - Highly relevant, same vibe/genre/actors.
+1: PARTIAL - Slight connection (e.g., same director but wrong movie).
 0: IRRELEVANT - No connection.
 
-Return ONLY a JSON object:
-{{"score": int, "reason": "string"}}
+You MUST return a JSON object with this structure:
+{{
+  "evaluations": [
+    {{ "rank": 1, "score": number, "reason": "string" }},
+    {{ "rank": 2, "score": number, "reason": "string" }},
+    {{ "rank": 3, "score": number, "reason": "string" }}
+  ]
+}}
 """
 
-def get_llm_judgment(query, expected, movie):
+
+# ============================================================
+# LLM JUDGE
+# ============================================================
+
+def get_top_n_judgments(query, expected, movies):
+    """
+    Evaluate a list of movies in one LLM call.
+    """
+
+    results_text = ""
+
+    for i, movie in enumerate(movies, 1):
+        results_text += f"""
+RANK {i}
+Title: {movie.get('title', '')}
+Genres: {movie.get('genres', '')}
+Director: {movie.get('director', '')}
+Cast: {movie.get('cast', '')}
+Overview: {movie.get('overview', '')}
+Keywords: {movie.get('keywords', '')}
+"""
+
     prompt = JUDGE_PROMPT.format(
         query=query,
         expected=expected,
-        title=movie.get("title", "N/A"),
-        overview=movie.get("overview", "N/A")
+        results_text=results_text,
     )
 
     try:
         response = client.chat.completions.create(
             model=JUDGE_MODEL,
-            messages=[{"role": "user", "content": prompt}],
-            response_format={"type": "json_object"}, # Вмикаємо JSON mode
-            temperature=0
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt,
+                }
+            ],
+            response_format={"type": "json_object"},
+            temperature=0,
         )
 
-        result = json.loads(response.choices[0].message.content)
-        return result.get("score", 0), result.get("reason", "N/A")
+        data = json.loads(
+            response.choices[0].message.content
+        )
+
+        evaluations = data.get("evaluations", [])
+
+        logger.info(
+            "Judge completed | query=%s | evaluations=%d",
+            query,
+            len(evaluations),
+        )
+
+        return evaluations
 
     except Exception as e:
-        return 0, f"Error: {str(e)}"
+        logger.exception(
+            "LLM Judge error | query=%s | error=%s",
+            query,
+            e,
+        )
+        return []
 
-def run_judge_evaluation(gt_path, output_path, limit=None):
+
+# ============================================================
+# EVALUATION
+# ============================================================
+
+def run_judge_evaluation(
+    gt_path,
+    output_path,
+    limit=None,
+):
     df = pl.read_csv(gt_path)
-    if limit: df = df.head(limit)
 
-    results = []
-    print(f"🚀 Starting evaluation on {len(df)} queries...\n")
+    if limit:
+        df = df.head(limit)
 
-    for row in df.iter_rows(named=True):
+    total_queries = len(df)
+
+    all_results = []
+
+    logger.info("=" * 60)
+    logger.info("Starting Top-3 LLM Judge Evaluation")
+    logger.info(
+        "queries=%d | model=%s",
+        total_queries,
+        JUDGE_MODEL,
+    )
+    logger.info("=" * 60)
+
+    start_eval_time = time.time()
+
+    for index, row in enumerate(
+        tqdm(
+            df.iter_rows(named=True),
+            total=total_queries,
+            desc="LLM Judge",
+        ),
+        start=1,
+    ):
         query = row["query"]
         expected = row["expected_title"]
 
-        search_hits = search_movies(query, top_n=1)
-        
-        if not search_hits:
-            results.append({
-                "query": query, "expected": expected, "result": "N/A",
-                "score": 0, "reason": "No results found"
-            })
+        logger.info(
+            "Processing query %d/%d | expected=%s | query=%s",
+            index,
+            total_queries,
+            expected,
+            query,
+        )
+
+        # --------------------------------------------
+        # Search Top 3
+        # --------------------------------------------
+
+        try:
+            search_hits = search_movies(
+                query,
+                top_n=3,
+            )
+        except Exception as e:
+            logger.exception(
+                "Search error | query=%s | error=%s",
+                query,
+                e,
+            )
             continue
 
-        movie = search_hits[0]
-        score, reason = get_llm_judgment(query, expected, movie)
+        if not search_hits:
+            logger.warning(
+                "No search results | query=%s",
+                query,
+            )
+            continue
 
-        results.append({
-            "query": query,
-            "expected": expected,
-            "result": movie["title"],
-            "score": score,
-            "reason": reason
-        })
+        logger.info(
+            "Search completed | query=%s | results=%d",
+            query,
+            len(search_hits),
+        )
 
-        icon = "✅" if score >= 2 else "❌"
-        print(f"{icon} {score}/3 | {expected} -> {movie['title']}")
+        # --------------------------------------------
+        # LLM Judge
+        # --------------------------------------------
 
-    # Метрики
-    results_df = pl.DataFrame(results)
-    print("\n" + "="*50)
-    print(f"AVG RELEVANCE: {results_df['score'].mean():.2f}/3")
-    print(f"SUCCESS RATE: {(results_df.filter(pl.col('score') >= 2).height / len(results_df)):.1%}")
-    print("="*50)
-    
+        evaluations = get_top_n_judgments(
+            query,
+            expected,
+            search_hits,
+        )
+
+        if not evaluations:
+            logger.warning(
+                "No judge evaluations | query=%s",
+                query,
+            )
+            continue
+
+        # --------------------------------------------
+        # Combine search + judge results
+        # --------------------------------------------
+
+        for i, movie in enumerate(search_hits):
+
+            eval_data = next(
+                (
+                    item
+                    for item in evaluations
+                    if item.get("rank") == i + 1
+                ),
+                {
+                    "score": 0,
+                    "reason": "N/A",
+                },
+            )
+
+            score = eval_data.get("score", 0)
+            reason = eval_data.get("reason", "N/A")
+
+            all_results.append({
+                "query": query,
+                "expected": expected,
+                "retrieved_title": movie["title"],
+                "rank": i + 1,
+                "llm_score": score,
+                "llm_reason": reason,
+            })
+
+            logger.info(
+                "Result | rank=%d | title=%s | score=%s",
+                i + 1,
+                movie["title"],
+                score,
+            )
+
+    # ========================================================
+    # FINAL METRICS
+    # ========================================================
+
+    if not all_results:
+        logger.error("No evaluation results were produced.")
+        return
+
+    results_df = pl.DataFrame(all_results)
+
+    # Average score @ Rank 1
+    avg_rank1 = (
+        results_df
+        .filter(pl.col("rank") == 1)["llm_score"]
+        .mean()
+    )
+
+    # Average score across all Top 3
+    avg_overall = results_df["llm_score"].mean()
+
+    # LLM-verified Hit Rate@3
+    perfect_hits = (
+        results_df
+        .filter(pl.col("llm_score") == 3)
+        .select("query")
+        .unique()
+        .height
+    )
+
+    hit_rate_at_3 = (
+        perfect_hits / total_queries
+    ) * 100
+
+    duration = time.time() - start_eval_time
+
+    # ========================================================
+    # LOG FINAL RESULTS
+    # ========================================================
+
+    logger.info("=" * 60)
+    logger.info("TOP-3 LLM JUDGE RESULTS")
+    logger.info("-" * 60)
+    logger.info(
+        "Avg Score @ Rank 1: %.2f",
+        avg_rank1,
+    )
+    logger.info(
+        "Avg Score (All Top 3): %.2f",
+        avg_overall,
+    )
+    logger.info(
+        "LLM-Verified Hit Rate @ 3: %.1f%%",
+        hit_rate_at_3,
+    )
+    logger.info(
+        "Duration: %.2fs",
+        duration,
+    )
+    logger.info(
+        "Results saved to: %s",
+        output_path,
+    )
+    logger.info("=" * 60)
+
+    # Save detailed results
     results_df.write_csv(output_path)
 
+
+# ============================================================
+# MAIN
+# ============================================================
+
 if __name__ == "__main__":
-    run_judge_evaluation("../data/ground_truth.csv", "judge_results.csv", limit=20)
+
+    GT_PATH = "data/ground_truth_45.csv"
+
+    OUTPUT_PATH = (
+        "data/judge_top3_results.csv"
+    )
+
+    run_judge_evaluation(
+        GT_PATH,
+        OUTPUT_PATH,
+    )

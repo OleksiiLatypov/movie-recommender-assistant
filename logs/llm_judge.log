@@ -1,0 +1,392 @@
+2026-09-04 13:56:59,417 | INFO | ============================================================
+2026-09-04 13:56:59,417 | INFO | Starting Top-3 LLM Judge Evaluation
+2026-09-04 13:56:59,417 | INFO | queries=3 | model=openai/gpt-oss-120b
+2026-09-04 13:56:59,417 | INFO | ============================================================
+2026-09-04 13:56:59,417 | INFO | Processing query 1/3 | expected=Star Wars | query=Farm boy joins a galactic rebellion and learns about the Force
+2026-09-04 13:57:00,282 | INFO | Search completed | query=Farm boy joins a galactic rebellion and learns about the Force | results=3
+2026-09-04 13:57:02,391 | INFO | Judge completed | query=Farm boy joins a galactic rebellion and learns about the Force | evaluations=3
+2026-09-04 13:57:02,391 | INFO | Result | rank=1 | title=Foreign Fields | score=0
+2026-09-04 13:57:02,391 | INFO | Result | rank=2 | title=The Empire Strikes Back | score=3
+2026-09-04 13:57:02,391 | INFO | Result | rank=3 | title=Star Wars: The Force Awakens | score=2
+2026-09-04 13:57:02,392 | INFO | Processing query 2/3 | expected=The Lord of the Rings: The Fellowship of the Ring | query=Hobbit journeys to a volcano to destroy a powerful ring
+2026-09-04 13:57:03,193 | INFO | Search completed | query=Hobbit journeys to a volcano to destroy a powerful ring | results=3
+2026-09-04 13:57:05,178 | INFO | Judge completed | query=Hobbit journeys to a volcano to destroy a powerful ring | evaluations=3
+2026-09-04 13:57:05,179 | INFO | Result | rank=1 | title=The Lord of the Rings: The Fellowship of the Ring | score=3
+2026-09-04 13:57:05,179 | INFO | Result | rank=2 | title=The Lord of the Rings: The Return of the King | score=2
+2026-09-04 13:57:05,179 | INFO | Result | rank=3 | title=The Return of the King | score=1
+2026-09-04 13:57:05,179 | INFO | Processing query 3/3 | expected=The Godfather | query=The patriarch of a crime dynasty transfers control to his reluctant son
+2026-09-04 13:57:05,894 | INFO | Search completed | query=The patriarch of a crime dynasty transfers control to his reluctant son | results=3
+2026-09-04 13:57:06,761 | INFO | Judge completed | query=The patriarch of a crime dynasty transfers control to his reluctant son | evaluations=3
+2026-09-04 13:57:06,761 | INFO | Result | rank=1 | title=The Godfather | score=3
+2026-09-04 13:57:06,762 | INFO | Result | rank=2 | title=Nobel Son | score=0
+2026-09-04 13:57:06,762 | INFO | Result | rank=3 | title=The Mobfathers | score=1
+2026-09-04 13:57:06,781 | INFO | ============================================================
+2026-09-04 13:57:06,782 | INFO | TOP-3 LLM JUDGE RESULTS
+2026-09-04 13:57:06,782 | INFO | ------------------------------------------------------------
+2026-09-04 13:57:06,782 | INFO | Avg Score @ Rank 1: 2.00
+2026-09-04 13:57:06,782 | INFO | Avg Score (All Top 3): 1.67
+2026-09-04 13:57:06,782 | INFO | LLM-Verified Hit Rate @ 3: 100.0%
+2026-09-04 13:57:06,782 | INFO | Duration: 7.36s
+2026-09-04 13:57:06,782 | INFO | Results saved to: data/judge_top3_results.csv
+2026-09-04 13:57:06,782 | INFO | ============================================================
+2026-09-04 13:58:20,162 | INFO | ============================================================
+2026-09-04 13:58:20,163 | INFO | Starting Top-3 LLM Judge Evaluation
+2026-09-04 13:58:20,163 | INFO | queries=46 | model=openai/gpt-oss-120b
+2026-09-04 13:58:20,163 | INFO | ============================================================
+2026-09-04 13:58:20,163 | INFO | Processing query 1/46 | expected=Star Wars | query=Farm boy joins a galactic rebellion and learns about the Force
+2026-09-04 13:58:21,049 | INFO | Search completed | query=Farm boy joins a galactic rebellion and learns about the Force | results=3
+2026-09-04 13:58:23,272 | INFO | Judge completed | query=Farm boy joins a galactic rebellion and learns about the Force | evaluations=3
+2026-09-04 13:58:23,273 | INFO | Result | rank=1 | title=Foreign Fields | score=0
+2026-09-04 13:58:23,273 | INFO | Result | rank=2 | title=The Empire Strikes Back | score=3
+2026-09-04 13:58:23,273 | INFO | Result | rank=3 | title=Star Wars: The Force Awakens | score=2
+2026-09-04 13:58:23,274 | INFO | Processing query 2/46 | expected=The Lord of the Rings: The Fellowship of the Ring | query=Hobbit journeys to a volcano to destroy a powerful ring
+2026-09-04 13:58:24,240 | INFO | Search completed | query=Hobbit journeys to a volcano to destroy a powerful ring | results=3
+2026-09-04 13:58:25,829 | INFO | Judge completed | query=Hobbit journeys to a volcano to destroy a powerful ring | evaluations=3
+2026-09-04 13:58:25,831 | INFO | Result | rank=1 | title=The Lord of the Rings: The Fellowship of the Ring | score=3
+2026-09-04 13:58:25,831 | INFO | Result | rank=2 | title=The Lord of the Rings: The Return of the King | score=2
+2026-09-04 13:58:25,831 | INFO | Result | rank=3 | title=The Return of the King | score=2
+2026-09-04 13:58:25,831 | INFO | Processing query 3/46 | expected=The Godfather | query=The patriarch of a crime dynasty transfers control to his reluctant son
+2026-09-04 13:58:26,617 | INFO | Search completed | query=The patriarch of a crime dynasty transfers control to his reluctant son | results=3
+2026-09-04 13:58:27,747 | INFO | Judge completed | query=The patriarch of a crime dynasty transfers control to his reluctant son | evaluations=3
+2026-09-04 13:58:27,748 | INFO | Result | rank=1 | title=The Godfather | score=3
+2026-09-04 13:58:27,748 | INFO | Result | rank=2 | title=Nobel Son | score=0
+2026-09-04 13:58:27,748 | INFO | Result | rank=3 | title=The Mobfathers | score=1
+2026-09-04 13:58:27,748 | INFO | Processing query 4/46 | expected=12 Angry Men | query=Twelve jurors debate the guilt of a young man in a small room
+2026-09-04 13:58:28,441 | INFO | Search completed | query=Twelve jurors debate the guilt of a young man in a small room | results=3
+2026-09-04 13:58:29,727 | INFO | Judge completed | query=Twelve jurors debate the guilt of a young man in a small room | evaluations=3
+2026-09-04 13:58:29,727 | INFO | Result | rank=1 | title=12 | score=2
+2026-09-04 13:58:29,727 | INFO | Result | rank=2 | title=12 Angry Men | score=3
+2026-09-04 13:58:29,728 | INFO | Result | rank=3 | title=12 Angry Men | score=3
+2026-09-04 13:58:29,728 | INFO | Processing query 5/46 | expected=The Lion King | query=Lion prince flees home after his father's death only to return as an adult
+2026-09-04 13:58:30,537 | INFO | Search completed | query=Lion prince flees home after his father's death only to return as an adult | results=3
+2026-09-04 13:58:35,031 | INFO | Judge completed | query=Lion prince flees home after his father's death only to return as an adult | evaluations=3
+2026-09-04 13:58:35,033 | INFO | Result | rank=1 | title=The Chronicles of Narnia: Prince Caspian | score=0
+2026-09-04 13:58:35,033 | INFO | Result | rank=2 | title=The Lion King | score=3
+2026-09-04 13:58:35,033 | INFO | Result | rank=3 | title=Prince of the Himalayas | score=1
+2026-09-04 13:58:35,033 | INFO | Processing query 6/46 | expected=Jurassic Park | query=Scientists and children visit a theme park with cloned dinosaurs
+2026-09-04 13:58:35,839 | INFO | Search completed | query=Scientists and children visit a theme park with cloned dinosaurs | results=3
+2026-09-04 13:58:49,285 | INFO | Judge completed | query=Scientists and children visit a theme park with cloned dinosaurs | evaluations=3
+2026-09-04 13:58:49,287 | INFO | Result | rank=1 | title=Jurassic Park | score=3
+2026-09-04 13:58:49,288 | INFO | Result | rank=2 | title=The Lost World: Jurassic Park | score=1
+2026-09-04 13:58:49,288 | INFO | Result | rank=3 | title=Jurassic World | score=2
+2026-09-04 13:58:49,289 | INFO | Processing query 7/46 | expected=Saving Private Ryan | query=Scientists go behind enemy lines in WWII to find a man whose brothers were killed
+2026-09-04 13:58:50,168 | INFO | Search completed | query=Scientists go behind enemy lines in WWII to find a man whose brothers were killed | results=3
+2026-09-04 13:59:03,005 | INFO | Judge completed | query=Scientists go behind enemy lines in WWII to find a man whose brothers were killed | evaluations=3
+2026-09-04 13:59:03,007 | INFO | Result | rank=1 | title=Overlord | score=0
+2026-09-04 13:59:03,007 | INFO | Result | rank=2 | title=Saving Private Ryan | score=3
+2026-09-04 13:59:03,007 | INFO | Result | rank=3 | title=Haywire | score=0
+2026-09-04 13:59:03,008 | INFO | Processing query 8/46 | expected=The Truman Show | query=Insurance salesman discovers his whole life is a reality TV show
+2026-09-04 13:59:03,818 | INFO | Search completed | query=Insurance salesman discovers his whole life is a reality TV show | results=3
+2026-09-04 13:59:13,766 | INFO | Judge completed | query=Insurance salesman discovers his whole life is a reality TV show | evaluations=3
+2026-09-04 13:59:13,767 | INFO | Result | rank=1 | title=The Truman Show | score=3
+2026-09-04 13:59:13,768 | INFO | Result | rank=2 | title=Thin Ice | score=0
+2026-09-04 13:59:13,768 | INFO | Result | rank=3 | title=Thin Ice | score=0
+2026-09-04 13:59:13,770 | INFO | Processing query 9/46 | expected=Eternal Sunshine of the Spotless Mind | query=Couple undergoes a procedure to erase each other from their memories
+2026-09-04 13:59:14,622 | INFO | Search completed | query=Couple undergoes a procedure to erase each other from their memories | results=3
+2026-09-04 13:59:23,482 | INFO | Judge completed | query=Couple undergoes a procedure to erase each other from their memories | evaluations=3
+2026-09-04 13:59:23,483 | INFO | Result | rank=1 | title=Eternal Sunshine of the Spotless Mind | score=3
+2026-09-04 13:59:23,483 | INFO | Result | rank=2 | title=Little Fish | score=1
+2026-09-04 13:59:23,484 | INFO | Result | rank=3 | title=Love Reset | score=1
+2026-09-04 13:59:23,484 | INFO | Processing query 10/46 | expected=La La Land | query=Jazz pianist and aspiring actress fall in love in Los Angeles
+2026-09-04 13:59:24,309 | INFO | Search completed | query=Jazz pianist and aspiring actress fall in love in Los Angeles | results=3
+2026-09-04 13:59:38,537 | INFO | Judge completed | query=Jazz pianist and aspiring actress fall in love in Los Angeles | evaluations=3
+2026-09-04 13:59:38,538 | INFO | Result | rank=1 | title=La La Land | score=3
+2026-09-04 13:59:38,538 | INFO | Result | rank=2 | title=Undiscovered | score=1
+2026-09-04 13:59:38,538 | INFO | Result | rank=3 | title=Some Girl | score=1
+2026-09-04 13:59:38,539 | INFO | Processing query 11/46 | expected=Amélie | query=Shy waitress in Paris decides to change the lives of those around her
+2026-09-04 13:59:39,576 | INFO | Search completed | query=Shy waitress in Paris decides to change the lives of those around her | results=3
+2026-09-04 13:59:51,798 | INFO | Judge completed | query=Shy waitress in Paris decides to change the lives of those around her | evaluations=3
+2026-09-04 13:59:51,799 | INFO | Result | rank=1 | title=Avenue Montaigne | score=1
+2026-09-04 13:59:51,799 | INFO | Result | rank=2 | title=What We Know | score=0
+2026-09-04 13:59:51,799 | INFO | Result | rank=3 | title=Amélie | score=3
+2026-09-04 13:59:51,800 | INFO | Processing query 12/46 | expected=Green Book | query=Italian-American bouncer drives a Black pianist through the 1960s South
+2026-09-04 13:59:52,661 | INFO | Search completed | query=Italian-American bouncer drives a Black pianist through the 1960s South | results=3
+2026-09-04 14:55:06,436 | INFO | ============================================================
+2026-09-04 14:55:06,437 | INFO | Starting Top-3 LLM Judge Evaluation
+2026-09-04 14:55:06,437 | INFO | queries=46 | model=openai/gpt-oss-120b
+2026-09-04 14:55:06,437 | INFO | ============================================================
+2026-09-04 14:55:06,439 | INFO | Processing query 1/46 | expected=Star Wars | query=Farm boy joins a galactic rebellion and learns about the Force
+2026-09-04 14:55:08,346 | INFO | Search completed | query=Farm boy joins a galactic rebellion and learns about the Force | results=3
+2026-09-04 14:55:10,649 | INFO | Judge completed | query=Farm boy joins a galactic rebellion and learns about the Force | evaluations=3
+2026-09-04 14:55:10,649 | INFO | Result | rank=1 | title=Foreign Fields | score=0
+2026-09-04 14:55:10,649 | INFO | Result | rank=2 | title=The Empire Strikes Back | score=3
+2026-09-04 14:55:10,649 | INFO | Result | rank=3 | title=Star Wars: The Force Awakens | score=1
+2026-09-04 14:55:10,650 | INFO | Processing query 2/46 | expected=The Lord of the Rings: The Fellowship of the Ring | query=Hobbit journeys to a volcano to destroy a powerful ring
+2026-09-04 14:55:11,508 | INFO | Search completed | query=Hobbit journeys to a volcano to destroy a powerful ring | results=3
+2026-09-04 14:55:14,627 | INFO | Judge completed | query=Hobbit journeys to a volcano to destroy a powerful ring | evaluations=3
+2026-09-04 14:55:14,628 | INFO | Result | rank=1 | title=The Lord of the Rings: The Fellowship of the Ring | score=3
+2026-09-04 14:55:14,628 | INFO | Result | rank=2 | title=The Lord of the Rings: The Return of the King | score=2
+2026-09-04 14:55:14,628 | INFO | Result | rank=3 | title=The Return of the King | score=1
+2026-09-04 14:55:14,629 | INFO | Processing query 3/46 | expected=The Godfather | query=The patriarch of a crime dynasty transfers control to his reluctant son
+2026-09-04 14:55:15,378 | INFO | Search completed | query=The patriarch of a crime dynasty transfers control to his reluctant son | results=3
+2026-09-04 14:55:17,087 | INFO | Judge completed | query=The patriarch of a crime dynasty transfers control to his reluctant son | evaluations=3
+2026-09-04 14:55:17,088 | INFO | Result | rank=1 | title=The Godfather | score=3
+2026-09-04 14:55:17,088 | INFO | Result | rank=2 | title=Nobel Son | score=0
+2026-09-04 14:55:17,088 | INFO | Result | rank=3 | title=The Mobfathers | score=1
+2026-09-04 14:55:17,089 | INFO | Processing query 4/46 | expected=12 Angry Men | query=Twelve jurors debate the guilt of a young man in a small room
+2026-09-04 14:55:17,772 | INFO | Search completed | query=Twelve jurors debate the guilt of a young man in a small room | results=3
+2026-09-04 14:55:18,880 | INFO | Judge completed | query=Twelve jurors debate the guilt of a young man in a small room | evaluations=3
+2026-09-04 14:55:18,881 | INFO | Result | rank=1 | title=12 | score=2
+2026-09-04 14:55:18,881 | INFO | Result | rank=2 | title=12 Angry Men | score=3
+2026-09-04 14:55:18,881 | INFO | Result | rank=3 | title=12 Angry Men | score=3
+2026-09-04 14:55:18,881 | INFO | Processing query 5/46 | expected=The Lion King | query=Lion prince flees home after his father's death only to return as an adult
+2026-09-04 14:55:19,723 | INFO | Search completed | query=Lion prince flees home after his father's death only to return as an adult | results=3
+2026-09-04 14:55:21,080 | INFO | Judge completed | query=Lion prince flees home after his father's death only to return as an adult | evaluations=3
+2026-09-04 14:55:21,081 | INFO | Result | rank=1 | title=The Chronicles of Narnia: Prince Caspian | score=0
+2026-09-04 14:55:21,081 | INFO | Result | rank=2 | title=The Lion King | score=3
+2026-09-04 14:55:21,081 | INFO | Result | rank=3 | title=Prince of the Himalayas | score=1
+2026-09-04 14:55:21,082 | INFO | Processing query 6/46 | expected=Jurassic Park | query=Scientists and children visit a theme park with cloned dinosaurs
+2026-09-04 14:55:21,878 | INFO | Search completed | query=Scientists and children visit a theme park with cloned dinosaurs | results=3
+2026-09-04 14:55:30,914 | INFO | Judge completed | query=Scientists and children visit a theme park with cloned dinosaurs | evaluations=3
+2026-09-04 14:55:30,915 | INFO | Result | rank=1 | title=Jurassic Park | score=3
+2026-09-04 14:55:30,915 | INFO | Result | rank=2 | title=The Lost World: Jurassic Park | score=1
+2026-09-04 14:55:30,915 | INFO | Result | rank=3 | title=Jurassic World | score=2
+2026-09-04 14:55:30,916 | INFO | Processing query 7/46 | expected=Saving Private Ryan | query=Scientists go behind enemy lines in WWII to find a man whose brothers were killed
+2026-09-04 14:55:31,779 | INFO | Search completed | query=Scientists go behind enemy lines in WWII to find a man whose brothers were killed | results=3
+2026-09-04 14:55:44,429 | INFO | Judge completed | query=Scientists go behind enemy lines in WWII to find a man whose brothers were killed | evaluations=3
+2026-09-04 14:55:44,432 | INFO | Result | rank=1 | title=Overlord | score=0
+2026-09-04 14:55:44,432 | INFO | Result | rank=2 | title=Saving Private Ryan | score=3
+2026-09-04 14:55:44,432 | INFO | Result | rank=3 | title=Haywire | score=0
+2026-09-04 14:55:44,433 | INFO | Processing query 8/46 | expected=The Truman Show | query=Insurance salesman discovers his whole life is a reality TV show
+2026-09-04 14:55:45,268 | INFO | Search completed | query=Insurance salesman discovers his whole life is a reality TV show | results=3
+2026-09-04 14:55:54,874 | INFO | Judge completed | query=Insurance salesman discovers his whole life is a reality TV show | evaluations=3
+2026-09-04 14:55:54,875 | INFO | Result | rank=1 | title=The Truman Show | score=3
+2026-09-04 14:55:54,876 | INFO | Result | rank=2 | title=Thin Ice | score=1
+2026-09-04 14:55:54,876 | INFO | Result | rank=3 | title=Thin Ice | score=1
+2026-09-04 14:55:54,876 | INFO | Processing query 9/46 | expected=Eternal Sunshine of the Spotless Mind | query=Couple undergoes a procedure to erase each other from their memories
+2026-09-04 14:55:55,724 | INFO | Search completed | query=Couple undergoes a procedure to erase each other from their memories | results=3
+2026-09-04 14:56:04,395 | INFO | Judge completed | query=Couple undergoes a procedure to erase each other from their memories | evaluations=3
+2026-09-04 14:56:04,398 | INFO | Result | rank=1 | title=Eternal Sunshine of the Spotless Mind | score=3
+2026-09-04 14:56:04,398 | INFO | Result | rank=2 | title=Little Fish | score=1
+2026-09-04 14:56:04,398 | INFO | Result | rank=3 | title=Love Reset | score=1
+2026-09-04 14:56:04,398 | INFO | Processing query 10/46 | expected=La La Land | query=Jazz pianist and aspiring actress fall in love in Los Angeles
+2026-09-04 14:56:05,245 | INFO | Search completed | query=Jazz pianist and aspiring actress fall in love in Los Angeles | results=3
+2026-09-04 14:56:20,984 | INFO | Judge completed | query=Jazz pianist and aspiring actress fall in love in Los Angeles | evaluations=3
+2026-09-04 14:56:20,986 | INFO | Result | rank=1 | title=La La Land | score=3
+2026-09-04 14:56:20,987 | INFO | Result | rank=2 | title=Undiscovered | score=1
+2026-09-04 14:56:20,987 | INFO | Result | rank=3 | title=Some Girl | score=1
+2026-09-04 14:56:20,987 | INFO | Processing query 11/46 | expected=Amélie | query=Shy waitress in Paris decides to change the lives of those around her
+2026-09-04 14:56:21,874 | INFO | Search completed | query=Shy waitress in Paris decides to change the lives of those around her | results=3
+2026-09-04 14:56:33,584 | INFO | Judge completed | query=Shy waitress in Paris decides to change the lives of those around her | evaluations=3
+2026-09-04 14:56:33,584 | INFO | Result | rank=1 | title=Avenue Montaigne | score=1
+2026-09-04 14:56:33,584 | INFO | Result | rank=2 | title=What We Know | score=0
+2026-09-04 14:56:33,584 | INFO | Result | rank=3 | title=Amélie | score=3
+2026-09-04 14:56:33,585 | INFO | Processing query 12/46 | expected=Green Book | query=Italian-American bouncer drives a Black pianist through the 1960s South
+2026-09-04 14:56:34,536 | INFO | Search completed | query=Italian-American bouncer drives a Black pianist through the 1960s South | results=3
+2026-09-04 14:56:45,254 | INFO | Judge completed | query=Italian-American bouncer drives a Black pianist through the 1960s South | evaluations=3
+2026-09-04 14:56:45,255 | INFO | Result | rank=1 | title=Green Book | score=3
+2026-09-04 14:56:45,255 | INFO | Result | rank=2 | title=A Bronx Tale | score=1
+2026-09-04 14:56:45,255 | INFO | Result | rank=3 | title=The Wanderers | score=1
+2026-09-04 14:56:45,256 | INFO | Processing query 13/46 | expected=Oldboy | query=Man is kidnapped and imprisoned for 15 years without knowing why
+2026-09-04 14:56:46,161 | INFO | Search completed | query=Man is kidnapped and imprisoned for 15 years without knowing why | results=3
+2026-09-04 14:56:58,772 | INFO | Judge completed | query=Man is kidnapped and imprisoned for 15 years without knowing why | evaluations=3
+2026-09-04 14:56:58,773 | INFO | Result | rank=1 | title=Oldboy | score=2
+2026-09-04 14:56:58,773 | INFO | Result | rank=2 | title=Oldboy | score=3
+2026-09-04 14:56:58,773 | INFO | Result | rank=3 | title=Zinda | score=1
+2026-09-04 14:56:58,774 | INFO | Processing query 14/46 | expected=Back to the Future | query=Teenager travels back to the 1950s in a DeLorean time machine
+2026-09-04 14:56:59,672 | INFO | Search completed | query=Teenager travels back to the 1950s in a DeLorean time machine | results=3
+2026-09-04 14:57:13,126 | INFO | Judge completed | query=Teenager travels back to the 1950s in a DeLorean time machine | evaluations=3
+2026-09-04 14:57:13,127 | INFO | Result | rank=1 | title=Back to the Future | score=3
+2026-09-04 14:57:13,127 | INFO | Result | rank=2 | title=Back to the Future Part III | score=2
+2026-09-04 14:57:13,127 | INFO | Result | rank=3 | title=Back to the 90s | score=0
+2026-09-04 14:57:13,127 | INFO | Processing query 15/46 | expected=Avengers: Endgame | query=Superheroes use time travel to undo a galactic genocide
+2026-09-04 14:57:14,028 | INFO | Search completed | query=Superheroes use time travel to undo a galactic genocide | results=3
+2026-09-04 14:57:25,103 | INFO | Judge completed | query=Superheroes use time travel to undo a galactic genocide | evaluations=3
+2026-09-04 14:57:25,104 | INFO | Result | rank=1 | title=Avengers: Endgame | score=3
+2026-09-04 14:57:25,104 | INFO | Result | rank=2 | title=Waxwork II: Lost in Time | score=0
+2026-09-04 14:57:25,104 | INFO | Result | rank=3 | title=Waxwork II: Lost in Time | score=0
+2026-09-04 14:57:25,104 | INFO | Processing query 16/46 | expected=Kill Bill: Vol. 1 | query=The Bride seeks revenge on her former colleagues who tried to kill her
+2026-09-04 14:57:25,990 | INFO | Search completed | query=The Bride seeks revenge on her former colleagues who tried to kill her | results=3
+2026-09-04 14:57:37,788 | INFO | Judge completed | query=The Bride seeks revenge on her former colleagues who tried to kill her | evaluations=3
+2026-09-04 14:57:37,789 | INFO | Result | rank=1 | title=Kill Bill: Vol. 2 | score=2
+2026-09-04 14:57:37,789 | INFO | Result | rank=2 | title=Kill Bill: The Whole Bloody Affair | score=2
+2026-09-04 14:57:37,789 | INFO | Result | rank=3 | title=She Killed in Ecstasy | score=0
+2026-09-04 14:57:37,789 | INFO | Processing query 17/46 | expected=Léon: The Professional | query=Professional hitman protects a 12-year-old girl after her family is murdered
+2026-09-04 14:57:38,511 | INFO | Search completed | query=Professional hitman protects a 12-year-old girl after her family is murdered | results=3
+2026-09-04 14:57:50,073 | INFO | Judge completed | query=Professional hitman protects a 12-year-old girl after her family is murdered | evaluations=3
+2026-09-04 14:57:50,074 | INFO | Result | rank=1 | title=The Killer | score=2
+2026-09-04 14:57:50,074 | INFO | Result | rank=2 | title=Léon: The Professional | score=3
+2026-09-04 14:57:50,074 | INFO | Result | rank=3 | title=Alice, Sweet Alice | score=0
+2026-09-04 14:57:50,075 | INFO | Processing query 18/46 | expected=Top Gun: Maverick | query=Veteran pilot trains a new group of graduates for a dangerous mission
+2026-09-04 14:57:50,884 | INFO | Search completed | query=Veteran pilot trains a new group of graduates for a dangerous mission | results=3
+2026-09-04 14:57:59,291 | INFO | Judge completed | query=Veteran pilot trains a new group of graduates for a dangerous mission | evaluations=3
+2026-09-04 14:57:59,292 | INFO | Result | rank=1 | title=Top Gun: Maverick | score=3
+2026-09-04 14:57:59,292 | INFO | Result | rank=2 | title=Sky Hunter | score=1
+2026-09-04 14:57:59,292 | INFO | Result | rank=3 | title=Unicorn Wars | score=0
+2026-09-04 14:57:59,293 | INFO | Processing query 19/46 | expected=Donnie Darko | query=Troubled teenager is visited by a giant rabbit who tells him the world is ending
+2026-09-04 14:58:00,179 | INFO | Search completed | query=Troubled teenager is visited by a giant rabbit who tells him the world is ending | results=3
+2026-09-04 14:58:07,279 | INFO | Judge completed | query=Troubled teenager is visited by a giant rabbit who tells him the world is ending | evaluations=3
+2026-09-04 14:58:07,280 | INFO | Result | rank=1 | title=Donnie Darko | score=3
+2026-09-04 14:58:07,280 | INFO | Result | rank=2 | title=To Die, to Sleep | score=0
+2026-09-04 14:58:07,280 | INFO | Result | rank=3 | title=Rabbit Horror | score=0
+2026-09-04 14:58:07,280 | INFO | Processing query 20/46 | expected=Black Swan | query=Ballerina descends into madness while preparing for the lead role in Swan Lake
+2026-09-04 14:58:08,199 | INFO | Search completed | query=Ballerina descends into madness while preparing for the lead role in Swan Lake | results=3
+2026-09-04 14:58:17,727 | INFO | Judge completed | query=Ballerina descends into madness while preparing for the lead role in Swan Lake | evaluations=3
+2026-09-04 14:58:17,728 | INFO | Result | rank=1 | title=Black Swan | score=3
+2026-09-04 14:58:17,728 | INFO | Result | rank=2 | title=Swan Lake | score=1
+2026-09-04 14:58:17,728 | INFO | Result | rank=3 | title=Barbie of Swan Lake | score=0
+2026-09-04 14:58:17,729 | INFO | Processing query 21/46 | expected=12 Years a Slave | query=Free Black man from New York is kidnapped and sold into slavery
+2026-09-04 14:58:18,682 | INFO | Search completed | query=Free Black man from New York is kidnapped and sold into slavery | results=3
+2026-09-04 14:58:30,319 | INFO | Judge completed | query=Free Black man from New York is kidnapped and sold into slavery | evaluations=3
+2026-09-04 14:58:30,319 | INFO | Result | rank=1 | title=12 Years a Slave | score=3
+2026-09-04 14:58:30,320 | INFO | Result | rank=2 | title=Solomon Northup's Odyssey | score=2
+2026-09-04 14:58:30,320 | INFO | Result | rank=3 | title='R Xmas | score=0
+2026-09-04 14:58:30,320 | INFO | Processing query 22/46 | expected=Spotlight | query=True story of the Boston Globe's investigation into the Catholic Church
+2026-09-04 14:58:31,178 | INFO | Search completed | query=True story of the Boston Globe's investigation into the Catholic Church | results=3
+2026-09-04 14:58:44,451 | INFO | Judge completed | query=True story of the Boston Globe's investigation into the Catholic Church | evaluations=3
+2026-09-04 14:58:44,451 | INFO | Result | rank=1 | title=Spotlight | score=3
+2026-09-04 14:58:44,451 | INFO | Result | rank=2 | title=The Boston Strangler | score=0
+2026-09-04 14:58:44,451 | INFO | Result | rank=3 | title=The Catholics | score=0
+2026-09-04 14:58:44,452 | INFO | Processing query 23/46 | expected=Jojo Rabbit | query=German boy discovers his mother is hiding a Jewish girl in their attic during WWII
+2026-09-04 14:58:45,381 | INFO | Search completed | query=German boy discovers his mother is hiding a Jewish girl in their attic during WWII | results=3
+2026-09-04 14:58:54,896 | INFO | Judge completed | query=German boy discovers his mother is hiding a Jewish girl in their attic during WWII | evaluations=3
+2026-09-04 14:58:54,896 | INFO | Result | rank=1 | title=Jojo Rabbit | score=3
+2026-09-04 14:58:54,896 | INFO | Result | rank=2 | title=Romeo, Juliet and Darkness | score=2
+2026-09-04 14:58:54,896 | INFO | Result | rank=3 | title=The Diary of Anne Frank | score=1
+2026-09-04 14:58:54,897 | INFO | Processing query 24/46 | expected=Drive | query=Hollywood stunt driver moonlights as a getaway driver Ryan Gosling
+2026-09-04 14:58:55,747 | INFO | Search completed | query=Hollywood stunt driver moonlights as a getaway driver Ryan Gosling | results=3
+2026-09-04 14:59:04,418 | INFO | Judge completed | query=Hollywood stunt driver moonlights as a getaway driver Ryan Gosling | evaluations=3
+2026-09-04 14:59:04,418 | INFO | Result | rank=1 | title=Drive | score=3
+2026-09-04 14:59:04,419 | INFO | Result | rank=2 | title=Hit & Run | score=1
+2026-09-04 14:59:04,419 | INFO | Result | rank=3 | title=Wheelman | score=1
+2026-09-04 14:59:04,419 | INFO | Processing query 25/46 | expected=American Psycho | query=Wealthy investment banker hides his bloodlust from his shallow associates
+2026-09-04 14:59:05,297 | INFO | Search completed | query=Wealthy investment banker hides his bloodlust from his shallow associates | results=3
+2026-09-04 14:59:13,634 | INFO | Judge completed | query=Wealthy investment banker hides his bloodlust from his shallow associates | evaluations=3
+2026-09-04 14:59:13,635 | INFO | Result | rank=1 | title=American Psycho | score=3
+2026-09-04 14:59:13,635 | INFO | Result | rank=2 | title=Shallow Grave | score=0
+2026-09-04 14:59:13,635 | INFO | Result | rank=3 | title=Demolition | score=1
+2026-09-04 14:59:13,636 | INFO | Processing query 26/46 | expected=Shrek | query=Ogre goes on a quest to rescue a princess to get his swamp back
+2026-09-04 14:59:14,539 | INFO | Search completed | query=Ogre goes on a quest to rescue a princess to get his swamp back | results=3
+2026-09-04 14:59:23,465 | INFO | Judge completed | query=Ogre goes on a quest to rescue a princess to get his swamp back | evaluations=3
+2026-09-04 14:59:23,466 | INFO | Result | rank=1 | title=Shrek the Musical | score=2
+2026-09-04 14:59:23,466 | INFO | Result | rank=2 | title=Shrek | score=3
+2026-09-04 14:59:23,466 | INFO | Result | rank=3 | title=The Magic Sword | score=0
+2026-09-04 14:59:23,466 | INFO | Processing query 27/46 | expected=Ratatouille | query=A rat who can cook makes an alliance with a kitchen worker in Paris
+2026-09-04 14:59:24,147 | INFO | Search completed | query=A rat who can cook makes an alliance with a kitchen worker in Paris | results=3
+2026-09-04 14:59:33,608 | INFO | Judge completed | query=A rat who can cook makes an alliance with a kitchen worker in Paris | evaluations=3
+2026-09-04 14:59:33,609 | INFO | Result | rank=1 | title=Ratatouille | score=3
+2026-09-04 14:59:33,609 | INFO | Result | rank=2 | title=Recipe for Love | score=0
+2026-09-04 14:59:33,609 | INFO | Result | rank=3 | title=Brooklyn | score=0
+2026-09-04 14:59:33,610 | INFO | Processing query 28/46 | expected=Spirited Away | query=Young girl enters a world of spirits and works in a bathhouse to save parents
+2026-09-04 14:59:34,480 | INFO | Search completed | query=Young girl enters a world of spirits and works in a bathhouse to save parents | results=3
+2026-09-04 14:59:43,434 | INFO | Judge completed | query=Young girl enters a world of spirits and works in a bathhouse to save parents | evaluations=3
+2026-09-04 14:59:43,434 | INFO | Result | rank=1 | title=Spirited Away | score=3
+2026-09-04 14:59:43,434 | INFO | Result | rank=2 | title=Stephanie | score=0
+2026-09-04 14:59:43,434 | INFO | Result | rank=3 | title=Deep End | score=0
+2026-09-04 14:59:43,435 | INFO | Processing query 29/46 | expected=Barbie | query=Iconic doll enters the real world to find her true purpose
+2026-09-04 14:59:44,298 | INFO | Search completed | query=Iconic doll enters the real world to find her true purpose | results=3
+2026-09-04 14:59:56,954 | INFO | Judge completed | query=Iconic doll enters the real world to find her true purpose | evaluations=3
+2026-09-04 14:59:56,955 | INFO | Result | rank=1 | title=Barbie | score=3
+2026-09-04 14:59:56,955 | INFO | Result | rank=2 | title=Fifteen and Pregnant | score=0
+2026-09-04 14:59:56,955 | INFO | Result | rank=3 | title=Dolls Can't Cry | score=1
+2026-09-04 14:59:56,956 | INFO | Processing query 30/46 | expected=Heat | query=A group of professional bank robbers pursued by an obsessive detective Al Pacino
+2026-09-04 14:59:57,817 | INFO | Search completed | query=A group of professional bank robbers pursued by an obsessive detective Al Pacino | results=3
+2026-09-04 15:00:13,845 | INFO | Judge completed | query=A group of professional bank robbers pursued by an obsessive detective Al Pacino | evaluations=3
+2026-09-04 15:00:13,846 | INFO | Result | rank=1 | title=Marauders | score=1
+2026-09-04 15:00:13,846 | INFO | Result | rank=2 | title=Heat | score=3
+2026-09-04 15:00:13,846 | INFO | Result | rank=3 | title=Takers | score=2
+2026-09-04 15:00:13,846 | INFO | Processing query 31/46 | expected=Inglourious Basterds | query=Jewish-American soldiers plot to assassinate Nazi leaders in occupied France
+2026-09-04 15:00:14,812 | INFO | Search completed | query=Jewish-American soldiers plot to assassinate Nazi leaders in occupied France | results=3
+2026-09-04 15:00:25,774 | INFO | Judge completed | query=Jewish-American soldiers plot to assassinate Nazi leaders in occupied France | evaluations=3
+2026-09-04 15:00:25,775 | INFO | Result | rank=1 | title=Inglourious Basterds | score=3
+2026-09-04 15:00:25,775 | INFO | Result | rank=2 | title=Persian Lessons | score=0
+2026-09-04 15:00:25,776 | INFO | Result | rank=3 | title=Anthropoid | score=1
+2026-09-04 15:00:25,776 | INFO | Processing query 32/46 | expected=Braveheart | query=Scottish warrior leads a rebellion against the English king Mel Gibson
+2026-09-04 15:00:26,685 | INFO | Search completed | query=Scottish warrior leads a rebellion against the English king Mel Gibson | results=3
+2026-09-04 15:00:35,350 | INFO | Judge completed | query=Scottish warrior leads a rebellion against the English king Mel Gibson | evaluations=3
+2026-09-04 15:00:35,351 | INFO | Result | rank=1 | title=Outlaw King | score=0
+2026-09-04 15:00:35,351 | INFO | Result | rank=2 | title=Robert the Bruce | score=0
+2026-09-04 15:00:35,351 | INFO | Result | rank=3 | title=The Master of Ballantrae | score=0
+2026-09-04 15:00:35,351 | INFO | Processing query 33/46 | expected=Alien | query=The crew of a spacecraft encounters a deadly extraterrestrial life form
+2026-09-04 15:00:36,039 | INFO | Search completed | query=The crew of a spacecraft encounters a deadly extraterrestrial life form | results=3
+2026-09-04 15:00:44,567 | INFO | Judge completed | query=The crew of a spacecraft encounters a deadly extraterrestrial life form | evaluations=3
+2026-09-04 15:00:44,569 | INFO | Result | rank=1 | title=Inseminoid | score=2
+2026-09-04 15:00:44,569 | INFO | Result | rank=2 | title=Life | score=2
+2026-09-04 15:00:44,569 | INFO | Result | rank=3 | title=Galaxy of Terror | score=1
+2026-09-04 15:00:44,570 | INFO | Processing query 34/46 | expected=Coco | query=Boy travels to the Land of the Dead to find his musician ancestor
+2026-09-04 15:00:45,444 | INFO | Search completed | query=Boy travels to the Land of the Dead to find his musician ancestor | results=3
+2026-09-04 15:00:55,666 | INFO | Judge completed | query=Boy travels to the Land of the Dead to find his musician ancestor | evaluations=3
+2026-09-04 15:00:55,666 | INFO | Result | rank=1 | title=The Land of Our Fathers | score=0
+2026-09-04 15:00:55,666 | INFO | Result | rank=2 | title=Coco | score=3
+2026-09-04 15:00:55,666 | INFO | Result | rank=3 | title=Moving Target | score=0
+2026-09-04 15:00:55,666 | INFO | Processing query 35/46 | expected=Spider-Man: Into the Spider-Verse | query=Teenager becomes a web-slinger and meets other versions of himself
+2026-09-04 15:00:56,345 | INFO | Search completed | query=Teenager becomes a web-slinger and meets other versions of himself | results=3
+2026-09-04 15:01:02,689 | INFO | Judge completed | query=Teenager becomes a web-slinger and meets other versions of himself | evaluations=3
+2026-09-04 15:01:02,690 | INFO | Result | rank=1 | title=Young Hunter | score=0
+2026-09-04 15:01:02,690 | INFO | Result | rank=2 | title=The Healer | score=0
+2026-09-04 15:01:02,690 | INFO | Result | rank=3 | title=Teenage Warhead | score=0
+2026-09-04 15:01:02,691 | INFO | Processing query 36/46 | expected=Black Panther | query=African king defends his high-tech nation from a dangerous usurper
+2026-09-04 15:01:03,606 | INFO | Search completed | query=African king defends his high-tech nation from a dangerous usurper | results=3
+2026-09-04 15:01:15,286 | INFO | Judge completed | query=African king defends his high-tech nation from a dangerous usurper | evaluations=3
+2026-09-04 15:01:15,287 | INFO | Result | rank=1 | title=Black Panther | score=3
+2026-09-04 15:01:15,287 | INFO | Result | rank=2 | title=Big Brother: A World Under Surveillance | score=0
+2026-09-04 15:01:15,287 | INFO | Result | rank=3 | title=Goliath Against the Giants | score=1
+2026-09-04 15:01:15,287 | INFO | Processing query 37/46 | expected=Doctor Strange in the Multiverse of Madness | query=Man travels through the multiverse to find his daughter in different realities
+2026-09-04 15:01:16,198 | INFO | Search completed | query=Man travels through the multiverse to find his daughter in different realities | results=3
+2026-09-04 15:01:24,196 | INFO | Judge completed | query=Man travels through the multiverse to find his daughter in different realities | evaluations=3
+2026-09-04 15:01:24,197 | INFO | Result | rank=1 | title=Redux Redux | score=1
+2026-09-04 15:01:24,197 | INFO | Result | rank=2 | title=Babylon 5: The Road Home | score=0
+2026-09-04 15:01:24,197 | INFO | Result | rank=3 | title=No Tomorrow | score=1
+2026-09-04 15:01:24,198 | INFO | Processing query 38/46 | expected=The Shape of Water | query=A mute woman falls in love with a high-security lab creature
+2026-09-04 15:01:24,903 | INFO | Search completed | query=A mute woman falls in love with a high-security lab creature | results=3
+2026-09-04 15:01:36,658 | INFO | Judge completed | query=A mute woman falls in love with a high-security lab creature | evaluations=3
+2026-09-04 15:01:36,659 | INFO | Result | rank=1 | title=The Shape of Water | score=3
+2026-09-04 15:01:36,659 | INFO | Result | rank=2 | title=The Isle | score=1
+2026-09-04 15:01:36,659 | INFO | Result | rank=3 | title=Sweet and Lowdown | score=0
+2026-09-04 15:01:36,660 | INFO | Processing query 39/46 | expected=The Big Short | query=Four outsiders in high finance predict the housing bubble collapse
+2026-09-04 15:01:37,467 | INFO | Search completed | query=Four outsiders in high finance predict the housing bubble collapse | results=3
+2026-09-04 15:01:46,004 | INFO | Judge completed | query=Four outsiders in high finance predict the housing bubble collapse | evaluations=3
+2026-09-04 15:01:46,005 | INFO | Result | rank=1 | title=The Flaw | score=1
+2026-09-04 15:01:46,006 | INFO | Result | rank=2 | title=The Forecaster | score=0
+2026-09-04 15:01:46,006 | INFO | Result | rank=3 | title=End of the Road: How Money Became Worthless | score=0
+2026-09-04 15:01:46,006 | INFO | Processing query 40/46 | expected=A Beautiful Mind | query=A mathematician with schizophrenia wins the Nobel Prize Russell Crowe
+2026-09-04 15:01:46,899 | INFO | Search completed | query=A mathematician with schizophrenia wins the Nobel Prize Russell Crowe | results=3
+2026-09-04 15:01:59,456 | INFO | Judge completed | query=A mathematician with schizophrenia wins the Nobel Prize Russell Crowe | evaluations=3
+2026-09-04 15:01:59,457 | INFO | Result | rank=1 | title=A Beautiful Mind | score=3
+2026-09-04 15:01:59,457 | INFO | Result | rank=2 | title=Nobel Son | score=0
+2026-09-04 15:01:59,457 | INFO | Result | rank=3 | title=The Prize | score=0
+2026-09-04 15:01:59,458 | INFO | Processing query 41/46 | expected=Good Will Hunting | query=Brilliant but rebellious janitor at MIT solves difficult math problems
+2026-09-04 15:02:00,289 | INFO | Search completed | query=Brilliant but rebellious janitor at MIT solves difficult math problems | results=3
+2026-09-04 15:02:12,425 | INFO | Judge completed | query=Brilliant but rebellious janitor at MIT solves difficult math problems | evaluations=3
+2026-09-04 15:02:12,425 | INFO | Result | rank=1 | title=Good Will Hunting | score=3
+2026-09-04 15:02:12,425 | INFO | Result | rank=2 | title=In Our Prime | score=1
+2026-09-04 15:02:12,426 | INFO | Result | rank=3 | title=A Beautiful Mind | score=0
+2026-09-04 15:02:12,426 | INFO | Processing query 42/46 | expected=The Irishman | query=A former hitman tries to settle down but is pulled back for one last job
+2026-09-04 15:02:13,364 | INFO | Search completed | query=A former hitman tries to settle down but is pulled back for one last job | results=3
+2026-09-04 15:02:21,329 | INFO | Judge completed | query=A former hitman tries to settle down but is pulled back for one last job | evaluations=3
+2026-09-04 15:02:21,330 | INFO | Result | rank=1 | title=7 Hours of Violence | score=2
+2026-09-04 15:02:21,330 | INFO | Result | rank=2 | title=The Last Run | score=1
+2026-09-04 15:02:21,330 | INFO | Result | rank=3 | title=More Dead than Alive | score=0
+2026-09-04 15:02:21,331 | INFO | Processing query 43/46 | expected=Saint Maud | query=Disturbing story about a nurse who becomes obsessed with her patient
+2026-09-04 15:02:22,231 | INFO | Search completed | query=Disturbing story about a nurse who becomes obsessed with her patient | results=3
+2026-09-04 15:02:32,700 | INFO | Judge completed | query=Disturbing story about a nurse who becomes obsessed with her patient | evaluations=3
+2026-09-04 15:02:32,700 | INFO | Result | rank=1 | title=Stonehearst Asylum | score=1
+2026-09-04 15:02:32,700 | INFO | Result | rank=2 | title=The Devil's Tail | score=1
+2026-09-04 15:02:32,700 | INFO | Result | rank=3 | title=The Yellow Wallpaper | score=0
+2026-09-04 15:02:32,701 | INFO | Processing query 44/46 | expected=Midsommar | query=Young woman discovers her family's dark secret at a midsummer festival in Sweden
+2026-09-04 15:02:33,400 | INFO | Search completed | query=Young woman discovers her family's dark secret at a midsummer festival in Sweden | results=3
+2026-09-04 15:02:43,145 | INFO | Judge completed | query=Young woman discovers her family's dark secret at a midsummer festival in Sweden | evaluations=3
+2026-09-04 15:02:43,146 | INFO | Result | rank=1 | title=A Midsummer of Love | score=0
+2026-09-04 15:02:43,146 | INFO | Result | rank=2 | title=Midsommar | score=3
+2026-09-04 15:02:43,146 | INFO | Result | rank=3 | title=Midsummer | score=1
+2026-09-04 15:02:43,146 | INFO | Processing query 45/46 | expected=The Menu | query=Couple visits an exclusive restaurant on an island where the chef has a dark plan
+2026-09-04 15:02:44,087 | INFO | Search completed | query=Couple visits an exclusive restaurant on an island where the chef has a dark plan | results=3
+2026-09-04 15:02:53,898 | INFO | Judge completed | query=Couple visits an exclusive restaurant on an island where the chef has a dark plan | evaluations=3
+2026-09-04 15:02:53,899 | INFO | Result | rank=1 | title=The Menu | score=3
+2026-09-04 15:02:53,899 | INFO | Result | rank=2 | title=Eat the Rich | score=1
+2026-09-04 15:02:53,899 | INFO | Result | rank=3 | title=Frank & Lola | score=1
+2026-09-04 15:02:53,900 | INFO | Processing query 46/46 | expected=Roma | query=The life of a domestic worker for a middle-class family in Mexico City
+2026-09-04 15:02:54,559 | INFO | Search completed | query=The life of a domestic worker for a middle-class family in Mexico City | results=3
+2026-09-04 15:03:03,420 | INFO | Judge completed | query=The life of a domestic worker for a middle-class family in Mexico City | evaluations=3
+2026-09-04 15:03:03,421 | INFO | Result | rank=1 | title=Roma | score=3
+2026-09-04 15:03:03,421 | INFO | Result | rank=2 | title=Via Park | score=1
+2026-09-04 15:03:03,421 | INFO | Result | rank=3 | title=Midnight Family | score=0
+2026-09-04 15:03:03,482 | INFO | ============================================================
+2026-09-04 15:03:03,482 | INFO | TOP-3 LLM JUDGE RESULTS
+2026-09-04 15:03:03,482 | INFO | ------------------------------------------------------------
+2026-09-04 15:03:03,482 | INFO | Avg Score @ Rank 1: 2.17
+2026-09-04 15:03:03,482 | INFO | Avg Score (All Top 3): 1.34
+2026-09-04 15:03:03,483 | INFO | LLM-Verified Hit Rate @ 3: 82.6%
+2026-09-04 15:03:03,483 | INFO | Duration: 477.04s
+2026-09-04 15:03:03,483 | INFO | Results saved to: data/judge_top3_results.csv
+2026-09-04 15:03:03,483 | INFO | ============================================================
