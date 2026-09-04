@@ -11,3 +11,5 @@ print(f"Title: {movie['title']}")
 print(f"Rating: {movie['vote_average']}")
 print(f"Poster: {movie['poster_url']}")
 print(f"Link:   {movie['movie_link']}")
+print(f"Embeddings:   {movie['embeddings']}")
+

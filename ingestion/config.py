@@ -9,7 +9,8 @@ ELASTICSEARCH_URL = os.getenv("ELASTICSEARCH_URL", "http://localhost:9200")
 # ============================================================
 # 2. INGESTION & DATA SETTINGS
 # ============================================================
-DATA_PATH = "../data/movies_with_embeddings.parquet"
+DATA_PATH = "data/movies_with_embeddings.parquet"
+
 BATCH_SIZE = 1500  # Number of documents per bulk request
 
 # ============================================================
