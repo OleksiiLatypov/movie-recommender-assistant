@@ -573,6 +573,12 @@ All evaluations results are located in **logs** directory:
 ```text
 HitRate 97%
 MRR 0.797
+
+
+TOP-3 LLM JUDGE RESULTS
+Avg Score @ Rank 1: 2.17
+Avg Score (All Top 3): 1.34
+LLM-Verified Hit Rate @ 3: 82.6%
 ```
 
 These metrics help compare different retrieval strategies, embedding models, and reranking configurations.
