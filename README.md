@@ -566,21 +566,13 @@ The judge evaluates retrieved movies against the user's query and ground-truth e
 
 ---
 
-# 🧪 Example Evaluation Results
+# 🧪 Hybrid Search Evaluation Results
 
-Example evaluation:
-
-```text
-Average Relevance: 2.50 / 3
-Success Rate:      80%
-```
-
-Retrieval evaluation can also be performed using:
+All evaluations results are located in **logs** directory:
 
 ```text
-HitRate@10
-MRR@10
-Recall@10
+HitRate 97%
+MRR 0.797
 ```
 
 These metrics help compare different retrieval strategies, embedding models, and reranking configurations.
@@ -748,7 +740,6 @@ Potential improvements include:
 
 - [ ] Improve hybrid retrieval weights
 - [ ] Optimize RRF parameters
-- [ ] Improve query rewriting
 - [ ] Optimize LLM context size
 - [ ] Add caching for repeated queries
 - [ ] Add automated evaluation to CI
