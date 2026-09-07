@@ -44,25 +44,3 @@ def rerank_movies(query, movies):
     return movies
 
 
-
-# if __name__ == "__main__":
-#     query = "drama movie about magicians engage in competitive in an attempt to create the ultimate stage illusion, directed by Nolan"
-#     #query = "A psychological thriller where a man has no short term memory"
-#     #query = "Scottish warrior leads a group of people against the English king with Mel Gibson main role"
-#     query = "crime, drama movie where young daughter is disappear with her friend and police fails to find them, Hugh Jackman starring"
-#     bm25_results = bm25_search(query, retrieve_k=150)
-#     rewritten_query = rewrite_query(query)
-#     print(rewritten_query)
-#     vector_results = vector_search(
-#                                 rewritten_query,
-#                                 retrieve_k=150
-#                                 )
-#     candidates = reciprocal_rank_fusion(
-#                                 bm25_results,
-#                                 vector_results,
-#                                 top_n=100
-#                                 )
-#     final_results = rerank_movies(query, candidates)
-
-#     for movie in final_results[:30]:
-#         print(movie["title"])

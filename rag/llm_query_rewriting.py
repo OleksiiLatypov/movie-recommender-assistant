@@ -1,4 +1,3 @@
-from sentence_transformers import SentenceTransformer, CrossEncoder
 import torch
 from openai import OpenAI
 import os

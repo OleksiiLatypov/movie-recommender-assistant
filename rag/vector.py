@@ -58,22 +58,3 @@ def vector_search(query, retrieve_k=100):
 
 
 
-# if __name__ == "__main__":
-#     test_query = "A psychological thriller where a man has no short term memory"
-#     test_query = "drama movie about magicians engage in competitive in an attempt to create the ultimate stage illusion"
-    
-#     print(f"📡 Testing Vector Search for: '{test_query}'\n")
-#     start = time.time()
-#     results = vector_search(test_query, retrieve_k=100)
-    
-#     if not results:
-#         print("❌ No results found.")
-#     else:
-#         for i, movie in enumerate(results, 1):
-#             # print(f"{i}. {movie['title']} (Score: {movie['vector_score']:.4f})")
-#             # print(f"   Overview: {movie.get('overview', '')[:100]}...")
-#             # print("-" * 50)
-#             print(f"{i}: {movie["_source"]["title"]}")
-            
-    
-#     print(f"Search completed in {time.time() - start:.2f}s")
