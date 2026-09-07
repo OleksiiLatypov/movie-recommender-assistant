@@ -1,8 +1,31 @@
-.venv
-__pycache__
-.git
-.ipynb_checkpoints
+.venv/
+__pycache__/
+*.py[cod]
+
+.git/
+.gitignore
+
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+
+.env
+*.log
+
+*.ipynb
+
+# Large local datasets
 data/*.parquet
-models/
+data/*.csv
+*.parquet
+*.csv
+
+# Images / temporary files
 *.png
 *.jpg
+*.jpeg
+
+# Docker
+Dockerfile
+docker-compose.yml
+docker-compose.yaml

@@ -1,17 +1,14 @@
 from sentence_transformers import SentenceTransformer, CrossEncoder
-from elasticsearch import Elasticsearch
 import torch
-import time
 from openai import OpenAI
 import os
 from dotenv import load_dotenv
 load_dotenv()
 
-print(os.getenv("GROQ_API_KEY"))
+
 
 def rewrite_query(user_query):
     client = OpenAI(api_key=os.getenv("GROQ_API_KEY"), base_url="https://api.groq.com/openai/v1")
-    #model = genai.GenerativeModel("gemini-1.5-flash")
     
     system_prompt = """
     You are an expert movie researcher. Your job is to take a vague user 
@@ -21,7 +18,6 @@ def rewrite_query(user_query):
     """
     
     response = client.chat.completions.create(
-        #model="llama-3.1-8b-instant", # Use a fast/cheap model for rewriting
         model="openai/gpt-oss-120b",
         messages=[
             {"role": "system", "content": system_prompt},

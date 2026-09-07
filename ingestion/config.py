@@ -62,7 +62,7 @@ def get_index_mapping(embedding_dim: int) -> dict:
                 "movie_link":     {"type": "keyword", "index": False},
 
                 # --- Vector Search ---
-                "embedding": {
+                "embeddings": {
                     "type": "dense_vector",
                     "dims": embedding_dim,
                     "index": True,

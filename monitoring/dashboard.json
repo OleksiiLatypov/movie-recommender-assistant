@@ -162,7 +162,7 @@
       }
     },
     {
-      "title": "Model Usage",
+      "title": "Total Cost Over Time",
       "type": "barchart",
       "gridPos": {
         "h": 8,
@@ -182,22 +182,22 @@
           },
           "editorMode": "code",
           "format": "table",
-          "rawSql": "SELECT model_used, count(*) AS requests FROM conversations WHERE $__timeFilter(timestamp) GROUP BY model_used ORDER BY requests DESC;",
+          "rawSql": "SELECT $__timeGroup(timestamp, '1d') AS time, SUM(total_cost) AS total_cost FROM conversations WHERE $__timeFilter(timestamp) GROUP BY 1 ORDER BY 1;",
           "refId": "A"
         }
       ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
       "options": {
-        "orientation": "horizontal",
+        "orientation": "vertical",
         "legend": {
           "displayMode": "list",
           "placement": "right"
         }
-      },
-      "fieldConfig": {
-        "defaults": {
-          "unit": "short"
-        },
-        "overrides": []
       }
     },
     {

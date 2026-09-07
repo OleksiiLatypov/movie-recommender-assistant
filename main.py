@@ -23,9 +23,9 @@ class MovieInfo(BaseModel):
     genres: Optional[str]
     director: Optional[str]
     cast: Optional[str]
-    runtime: Optional[int] = 0        # Додайте Optional та дефолт 0
-    imdb_rating: Optional[float] = 0.0 # Вже добре
-    vote_average: Optional[float] = 0.0 # Вже добре
+    runtime: Optional[int] = 0        
+    imdb_rating: Optional[float] = 0.0 
+    vote_average: Optional[float] = 0.0 
     final_score: float
 
 
@@ -80,6 +80,7 @@ async def recommend_movies(request: QueryRequest):
         # but you can adjust these values based on your actual LLM helper output
         answer_data = {
             "answer": ai_response,
+            "rewrite_model": "gpt-oss-20b",
             "model": "gpt-oss-120b", # Based on your previous error log
             "time": duration,
             "p_tokens": 1500,  # Estimated

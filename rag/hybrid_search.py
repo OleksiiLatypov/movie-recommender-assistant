@@ -11,23 +11,19 @@ def search_rrf_pipeline(query, top_n=20):
     """
     Unified function for the evaluation script to call.
     """
+    # 1. Query Rewriting
+    rewritten = rewrite_query(query)
 
-    # rewritten = rewrite_query(query)
-    # print(rewritten)
-    # 1. BM25 Search
-    bm25_results = bm25_search(query, retrieve_k=150)
-    
-    # 2. Query Rewriting
-#    rewritten = rewrite_query(query)
+    # 2. BM25 Search
+    bm25_results = bm25_search(rewritten, retrieve_k=150)
     
     # 3. Vector Search
-    vector_results = vector_search(query, retrieve_k=150)
+    vector_results = vector_search(rewritten, retrieve_k=150)
     
     # 4. Fusion
     candidates = reciprocal_rank_fusion(bm25_results, vector_results, top_n=50)
     
     # 5. Reranking (This is the slow part)
-    # We only rerank 50 to keep the evaluation from taking hours
     final_results = rerank_movies(query, candidates)
     
     return final_results[:top_n]

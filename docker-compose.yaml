@@ -1,46 +1,90 @@
 services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: movie-app
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+    ports:
+      - "8000:8000"
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: ${POSTGRES_DB:-movie_db}
+      POSTGRES_USER: ${POSTGRES_USER:-admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
+
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+
+      GROQ_API_KEY: ${GROQ_API_KEY}
+
+      TZ: Europe/Berlin
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+      elasticsearch:
+        condition: service_healthy
+
+
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
     container_name: elasticsearch
     environment:
       - discovery.type=single-node
       - xpack.security.enabled=false
-      - "ES_JAVA_OPTS=-Xms1g -Xmx1g" 
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
     ports:
       - "9200:9200"
     mem_limit: 2g
     volumes:
       - es_data:/usr/share/elasticsearch/data
     healthcheck:
-      test: ["CMD-SHELL", "curl -s http://localhost:9200/_cluster/health | grep -q 'status.*green\\|yellow'"]
+      test:
+        [
+          "CMD-SHELL",
+          "curl -s http://localhost:9200/_cluster/health | grep -q 'status.*green\\|yellow'"
+        ]
       interval: 10s
       timeout: 5s
-      retries: 5
+      retries: 10
 
   postgres:
     image: postgres:15
     container_name: postgres
     environment:
-      - POSTGRES_DB=${POSTGRES_DB:-movie_db}
-      - POSTGRES_USER=${POSTGRES_USER:-admin}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-password}
+      POSTGRES_DB: ${POSTGRES_DB:-movie_db}
+      POSTGRES_USER: ${POSTGRES_USER:-admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
     ports:
       - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER:-admin} -d ${POSTGRES_DB:-movie_db}"
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
     environment:
-      - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER:-admin}
-      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:-admin}
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_ADMIN_USER:-admin}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:-admin}
     ports:
       - "3000:3000"
     volumes:
       - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
 
 volumes:
   es_data:
