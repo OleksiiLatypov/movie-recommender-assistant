@@ -254,10 +254,8 @@ movie-recommender-assistant/
 │
 │
 ├── data/
+|   |—- ground_truth.csv
 │   └── movies_with_embeddings.parquet
-│
-└── tests/
-    └── ...
 ```
 
 ---
@@ -310,7 +308,7 @@ Do not commit `.env` to GitHub.
 
 # 📦 Dataset
 
-The project uses a movie dataset containing approximately **72 462 movies** with metadata and precomputed embeddings, it is located in data directory or you can download running **ingestion/get_data.py** file .
+The project uses a movie dataset containing approximately **72 462 movies** with metadata and precomputed embeddings, it is located in data directory and you can obtain it using **git lfs** or you can download running **ingestion/get_data.py** file .
 
 The processed dataset contains information such as:
 
@@ -327,7 +325,7 @@ The processed dataset contains information such as:
 - poster URLs
 - embeddings
 
-The embeddings are generated using GPU on Google Colab in **sentence-transformerembeddings.ipynb** notebook:
+The embeddings are generated using GPU on Google Colab in **rag/sentence-transformer-embeddings.ipynb** notebook:
 
 ```text
 BAAI/bge-base-en-v1.5
